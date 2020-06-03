@@ -13,7 +13,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("executing tests")
 	err := cmd.Run()
 	if err != nil {
-		s = "could not run test"
+		s = err.Error()
 	} else {
 		s = TestToHTML("test.txt")
 	}

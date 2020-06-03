@@ -1,3 +1,5 @@
 #!/bin/bash
 
-pushd app ; go test -v &>../test.txt; popd
+go test -v ./app/*.go &>test.txt
+
+exit 0

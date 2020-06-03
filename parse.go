@@ -12,20 +12,29 @@ func parseTestLine(line string) string {
 	var matched bool
 	var err error
 
+	// Test header
+	matched, err = regexp.MatchString("======", line)
+	if err != nil {
+		panic(err.Error)
+	}
+	if matched {
+		return fmt.Sprintf("<h3 class='hdr'>%s</h3>", line)
+	}
+
 	// === RUN
 	matched, err = regexp.MatchString(`=== RUN`, line)
 	if err != nil {
 		panic(err.Error)
 	}
 	if matched {
-		return fmt.Sprintf("<hr/><div class=run>%s</div>", line)
+		return fmt.Sprintf("<hr/><div class='run'>%s</div>", line)
 	}
 	matched, err = regexp.MatchString(`--- PASS`, line)
 	if err != nil {
 		panic(err.Error)
 	}
 	if matched {
-		return fmt.Sprintf("<div class=pass>%s</div>", line)
+		return fmt.Sprintf("<div class='pass'>%s</div>", line)
 	}
 
 	matched, err = regexp.MatchString(`--- FAIL`, line)
@@ -33,7 +42,7 @@ func parseTestLine(line string) string {
 		panic(err.Error)
 	}
 	if matched {
-		return fmt.Sprintf("<div class=fail>%s</div>", line)
+		return fmt.Sprintf("<div class='fail'>%s</div>", line)
 	}
 
 	matched, err = regexp.MatchString(`    .+_test`, line)
@@ -41,10 +50,18 @@ func parseTestLine(line string) string {
 		panic(err.Error)
 	}
 	if matched {
-		return fmt.Sprintf("<div class=item>%s</div>", line)
+		return fmt.Sprintf("<div class='item'>%s</div>", line)
 	}
 
-	return fmt.Sprintf("<div class=other>%s</div>", line)
+	matched, err = regexp.MatchString(`^FAIL`, line)
+	if err != nil {
+		panic(err.Error)
+	}
+	if matched {
+		return ""
+	}
+
+	return fmt.Sprintf("<div class='other'>%s</div>", line)
 }
 
 func header() string {
@@ -54,6 +71,7 @@ func header() string {
 	body {
 		font-family:monospace;
 	}
+	.hdr {color:magenta;}
 	.run {color:blue;margin-top:8px;font-weight:bold;}
 	.fail {color:red;margin-top:2px;font-weight:bold;}
 	.pass {color:green;margin-top:2px;font-weight:bold;}
