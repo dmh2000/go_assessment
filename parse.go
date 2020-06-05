@@ -75,7 +75,7 @@ func header() string {
 	.run {color:blue;margin-top:8px;font-weight:bold;}
 	.fail {color:red;margin-top:2px;font-weight:bold;}
 	.pass {color:green;margin-top:2px;font-weight:bold;}
-	.item {color:blue;margin-top:1px;}
+	.item {color:blue;margin-top:1px;font-size:small;}
 	.other {color:black;margin-top:1px;}
 	</style>
 	<body>
