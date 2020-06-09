@@ -11,14 +11,18 @@ import (
 func parseTestLine(line string) string {
 	var matched bool
 	var err error
+	var r *regexp.Regexp
+	var s []string
 
 	// Test header
-	matched, err = regexp.MatchString("======", line)
+	r, err = regexp.Compile(`@(.+)`)
+	s = r.FindStringSubmatch(line)
+	// matched, err = regexp.MatchString("@(.+)", line)
 	if err != nil {
 		panic(err.Error)
 	}
-	if matched {
-		return fmt.Sprintf("<h3 class='hdr'>%s</h3>", line)
+	if len(s) >= 2 {
+		return fmt.Sprintf("<hr/><h3 class='hdr'>%s</h3><hr/>", s[1])
 	}
 
 	// === RUN
@@ -27,7 +31,7 @@ func parseTestLine(line string) string {
 		panic(err.Error)
 	}
 	if matched {
-		return fmt.Sprintf("<hr/><div class='run'>%s</div>", line)
+		return fmt.Sprintf("<div class='run'>%s</div>", line)
 	}
 	matched, err = regexp.MatchString(`--- PASS`, line)
 	if err != nil {
@@ -71,8 +75,8 @@ func header() string {
 	body {
 		font-family:monospace;
 	}
-	.hdr {color:magenta;}
-	.run {color:blue;margin-top:8px;font-weight:bold;}
+	.hdr {color:magenta;margin-top:2px;margin-bottom:2px;font-weight:bold;}
+	.run {color:blue;margin-top:2px;font-weight:bold;}
 	.fail {color:red;margin-top:2px;font-weight:bold;}
 	.pass {color:green;margin-top:2px;font-weight:bold;}
 	.item {color:blue;margin-top:1px;font-size:small;}

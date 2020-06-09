@@ -1,3 +1,4 @@
+@Flow Control
 === RUN   TestFlowControl
 --- FAIL: TestFlowControl (0.00s)
     flowControl_test.go:8: you should be able to conditionally branch your code
@@ -21,34 +22,10 @@
         
     flowControl_test.go:62:  should be fizzbuzz
         
-=== RUN   TestListFiles
---- FAIL: TestListFiles (0.00s)
-    recursion_test.go:37: you should be able to return a list of files from the data
-    recursion_test.go:42: 0 should be 8
-        
-    recursion_test.go:46: -1 should be >= 0
-    recursion_test.go:50: -1 should be >= 0
-    recursion_test.go:54: -1 should be -1
-        
-=== RUN   TestListDir
---- FAIL: TestListDir (0.00s)
-    recursion_test.go:59: you should be able to return a list of files in a subdir
-    recursion_test.go:64: 0 should be 5
-        
-    recursion_test.go:69: -1 should be >= 0
-    recursion_test.go:73: -1 should be >= 0
-=== RUN   TestPermute
---- FAIL: TestPermute (0.00s)
-    recursion_test.go:107: you should be able to return the permutations of an array
-    recursion_test.go:115: 0 should be 24
-        
-=== RUN   TestFibonacci
---- FAIL: TestFibonacci (0.00s)
-    recursion_test.go:128: you should be able to return the nth number in a fibonacci sequence
-    recursion_test.go:133: 0 should be 1
-        
-    recursion_test.go:137: 0 should be 8
-        
+FAIL
+FAIL	command-line-arguments	0.002s
+FAIL
+@Slices
 === RUN   TestIndexOf
 --- FAIL: TestIndexOf (0.00s)
     slices_test.go:13: you should be able to determine the location of an item in a slice
@@ -146,3 +123,143 @@
 FAIL
 FAIL	command-line-arguments	0.002s
 FAIL
+@Logical Operators
+=== RUN   TestLogicalOr
+--- FAIL: TestLogicalOr (0.00s)
+    logicalOperators_test.go:6: you should be able to work with logical or
+    logicalOperators_test.go:26: true should be false
+        
+=== RUN   TestLogicalAnd
+--- FAIL: TestLogicalAnd (0.00s)
+    logicalOperators_test.go:31: you should be able to work with logical and
+    logicalOperators_test.go:36: true should be false
+        
+    logicalOperators_test.go:41: true should be false
+        
+    logicalOperators_test.go:51: true should be false
+        
+=== RUN   TestLogicalNot
+--- FAIL: TestLogicalNot (0.00s)
+    logicalOperators_test.go:56: you should be able to work with logical not
+    logicalOperators_test.go:66: true should be false
+        
+FAIL
+FAIL	command-line-arguments	0.002s
+FAIL
+@Numbers
+=== RUN   TestValueAtBit
+--- FAIL: TestValueAtBit (0.00s)
+    numbers_test.go:6: you should be able to find the value of a given bit
+    numbers_test.go:12: 0 should be 1
+        
+    numbers_test.go:17: 0 should be 1
+        
+    numbers_test.go:22: 0 should be 1
+        
+=== RUN   TestBase10
+--- FAIL: TestBase10 (0.00s)
+    numbers_test.go:33: you should be able to return the base10 representation of a binary string'
+    numbers_test.go:38: 0 should be 192
+        
+=== RUN   TestConvertoBinary
+--- FAIL: TestConvertoBinary (0.00s)
+    numbers_test.go:43: you should be able to convert an eight-bit number to a binary string
+    numbers_test.go:49:  should be 10000000
+        
+    numbers_test.go:54:  should be 01000001
+        
+=== RUN   TestMultiplyWithPrecision
+--- FAIL: TestMultiplyWithPrecision (0.00s)
+    numbers_test.go:59: you should be able to multiply with precision
+    numbers_test.go:65: 0 should be 0.3
+        
+    numbers_test.go:70: 0 should be 0.6
+        
+    numbers_test.go:75: 0 should be 0.0003
+        
+FAIL
+FAIL	command-line-arguments	0.002s
+FAIL
+@Strings
+@Functions
+=== RUN   TestFunction
+--- FAIL: TestFunction (0.00s)
+    functions_test.go:13: you should be able to return a function from a function
+    functions_test.go:36:  should be Hello, world
+        
+    functions_test.go:47:  should be Hai, can i haz funxtion?
+        
+=== RUN   TestClosures
+--- FAIL: TestClosures (0.00s)
+    functions_test.go:53: you should be able to use closures
+    functions_test.go:65: 0 should be 3
+        
+=== RUN   TestPartial
+--- FAIL: TestPartial (0.00s)
+    functions_test.go:79: you should be able to create a 'partial' function
+    functions_test.go:93: fPartial returned nil
+=== RUN   TestMap
+--- FAIL: TestMap (0.00s)
+    functions_test.go:115: you should be able to implement a function MAP function
+    functions_test.go:134: 0 should be 1
+        
+    functions_test.go:134: 0 should be 4
+        
+    functions_test.go:134: 0 should be 9
+        
+    functions_test.go:134: 0 should be 16
+        
+    functions_test.go:134: 0 should be 25
+        
+=== RUN   TestReduce
+--- FAIL: TestReduce (0.00s)
+    functions_test.go:141: you should be able to implement a function REDUCE function
+    functions_test.go:157: 0 should be 15
+        
+=== RUN   TestFilter
+--- FAIL: TestFilter (0.00s)
+    functions_test.go:181: 0 should be 1
+        
+    functions_test.go:181: 0 should be 3
+        
+    functions_test.go:181: 0 should be 5
+        
+FAIL
+FAIL	command-line-arguments	0.002s
+FAIL
+@Recursion
+=== RUN   TestListFiles
+--- FAIL: TestListFiles (0.00s)
+    recursion_test.go:37: you should be able to return a list of files from the data
+    recursion_test.go:42: 0 should be 8
+        
+    recursion_test.go:46: -1 should be >= 0
+    recursion_test.go:50: -1 should be >= 0
+    recursion_test.go:54: -1 should be -1
+        
+=== RUN   TestListDir
+--- FAIL: TestListDir (0.00s)
+    recursion_test.go:59: you should be able to return a list of files in a subdir
+    recursion_test.go:64: 0 should be 5
+        
+    recursion_test.go:69: -1 should be >= 0
+    recursion_test.go:73: -1 should be >= 0
+=== RUN   TestPermute
+--- FAIL: TestPermute (0.00s)
+    recursion_test.go:107: you should be able to return the permutations of an array
+    recursion_test.go:115: 0 should be 24
+        
+=== RUN   TestFibonacci
+--- FAIL: TestFibonacci (0.00s)
+    recursion_test.go:128: you should be able to return the nth number in a fibonacci sequence
+    recursion_test.go:133: 0 should be 1
+        
+    recursion_test.go:137: 0 should be 8
+        
+FAIL
+FAIL	command-line-arguments	0.002s
+FAIL
+@Methods
+@Regex
+@Count
+@Async

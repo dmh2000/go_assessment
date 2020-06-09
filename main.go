@@ -9,7 +9,7 @@ import (
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	var s string
-	cmd := exec.Command("./test.sh")
+	cmd := exec.Command("./all.sh")
 	fmt.Println("executing tests")
 	err := cmd.Run()
 	if err != nil {

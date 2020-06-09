@@ -2,11 +2,14 @@ package goassessment
 
 // return a function from a function
 func fFunction(str string) func(string) string {
-	return nil
+	return func(s string) string {
+		return ""
+	}
 }
 
 // return an array of closures over the values in arr
 func fMakeClosures(fn func(x int) int, arr []int) []func() int {
+
 	return nil
 }
 
@@ -19,19 +22,19 @@ func fPartial(
 	return nil
 }
 
-// create a new array populated with tyhe result of calling the provided function
-func fMap(fn func(a int), arr []int) []int {
-	return nil
+// create a new array populated with the result of calling the provided function
+func fMap(fn func(a int) int, arr []int) []int {
+	return []int{0, 0, 0, 0, 0}
 }
 
 // return a value by applying the reducer fn to each element of the array
-func fReduce(fn func(acc int, val int, index int, a []int), arr []int) int {
+func fReduce(fn func(acc int, val int) int, arr []int) int {
 	return 0
 }
 
 // return a new array contains only the elements for which the function is true
 func fFilter(fn func(a int) bool, arr []int) []int {
-	return nil
+	return []int{0, 0, 0}
 }
 
 // return a function that concatenates the arguments
