@@ -23,7 +23,7 @@
     flowControl_test.go:62:  should be fizzbuzz
         
 FAIL
-FAIL	command-line-arguments	0.002s
+FAIL	command-line-arguments	0.001s
 FAIL
 @Slices
 === RUN   TestIndexOf
@@ -144,7 +144,7 @@ FAIL
     logicalOperators_test.go:66: true should be false
         
 FAIL
-FAIL	command-line-arguments	0.002s
+FAIL	command-line-arguments	0.001s
 FAIL
 @Numbers
 === RUN   TestValueAtBit
@@ -225,7 +225,7 @@ FAIL
     functions_test.go:181: 0 should be 5
         
 FAIL
-FAIL	command-line-arguments	0.002s
+FAIL	command-line-arguments	0.003s
 FAIL
 @Recursion
 === RUN   TestListFiles
@@ -260,6 +260,27 @@ FAIL
 FAIL	command-line-arguments	0.002s
 FAIL
 @Methods
+=== RUN   TestMethodsSort
+--- FAIL: TestMethodsSort (0.00s)
+    methods_test.go:22: you should be able to implement the Sort interface for a specified type
+    methods_test.go:35: {20 January} should be {18 April}
+        
+    methods_test.go:35: {18 April} should be {20 January}
+        
+    methods_test.go:35: {45 June} should be {30 August}
+        
+    methods_test.go:35: {30 August} should be {45 June}
+        
+=== RUN   TestMethodsInterface
+--- FAIL: TestMethodsInterface (0.00s)
+    methods_test.go:53: you should be able to use an interface
+    methods_test.go:66:  should be new mail for 12345:September
+        
+    methods_test.go:72:  should be new mail for October
+        
+FAIL
+FAIL	command-line-arguments	0.001s
+FAIL
 @Regex
 @Count
 @Async
