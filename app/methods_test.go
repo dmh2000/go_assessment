@@ -25,7 +25,9 @@ func TestMethodsSort(t *testing.T) {
 		{20, "January"}, {18, "April"}, {45, "June"}, {30, "August"},
 	}
 
+	// =========================================
 	// fix the sort implementation in methods.go
+	// =========================================
 	sort.Sort(p)
 
 	q := PersonSlice{
@@ -58,12 +60,7 @@ func TestMethodsInterface(t *testing.T) {
 	p := Person{name: "October", age: 99}
 	e := Employee{p: Person{name: "September", age: 31}, id: 12345}
 
-	// =========================
-	// your function
-	// =========================
 	s = sendNotification(e)
-	// =========================
-
 	r = "new mail for 12345:September"
 	if s != r {
 		t.Error(shouldBe(s, r))
@@ -71,10 +68,7 @@ func TestMethodsInterface(t *testing.T) {
 
 	// =========================
 	// your function
-	// =========================
 	s = sendNotification(p)
-	// =========================
-
 	r = "new mail for October"
 	if s != r {
 		t.Error(shouldBe(s, r))

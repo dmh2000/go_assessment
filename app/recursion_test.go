@@ -37,19 +37,23 @@ func TestListFiles(t *testing.T) {
 	t.Log("you should be able to return a list of files from the data")
 	var index int
 	// passing in 'nil' means list all files
+
 	var result = listFiles(fileData, "")
 	if len(result) != 8 {
 		t.Error(shouldBe(len(result), 8))
 	}
-	index = indexOfStrings(result, "index.html")
+
+	index = testIndexOfStrings(result, "index.html")
 	if index < 0 {
 		t.Error(index, "should be >= 0")
 	}
-	index = indexOfStrings(result, "main.js")
+
+	index = testIndexOfStrings(result, "main.js")
 	if index < 0 {
 		t.Error(index, "should be >= 0")
 	}
-	index = indexOfStrings(result, "notfound.js")
+
+	index = testIndexOfStrings(result, "notfound.js")
 	if index < 0 {
 		t.Error(shouldBe(index, -1))
 	}
@@ -59,16 +63,18 @@ func TestListDir(t *testing.T) {
 	t.Log("you should be able to return a list of files in a subdir")
 	var index int
 	// passing in 'nil' means list all files
+
 	var result = listFiles(fileData, "js")
 	if len(result) != 5 {
 		t.Error(shouldBe(len(result), 5))
 	}
 
-	index = indexOfStrings(result, "main.js")
+	index = testIndexOfStrings(result, "main.js")
 	if index < 0 {
 		t.Error(index, "should be >= 0")
 	}
-	index = indexOfStrings(result, "underscore.js")
+
+	index = testIndexOfStrings(result, "underscore.js")
 	if index < 0 {
 		t.Error(index, "should be >= 0")
 	}
@@ -107,7 +113,6 @@ func TestPermute(t *testing.T) {
 	t.Log("you should be able to return the permutations of an array")
 	var result [][]int
 
-	// your function
 	result = permute(permData)
 
 	// length of answers should be the same
@@ -117,7 +122,7 @@ func TestPermute(t *testing.T) {
 
 	// check for all permutations
 	for _, target := range result {
-		index := indexOfIntSlice(permutations, target)
+		index := testIndexOfIntSlice(permutations, target)
 		if index < 0 {
 			t.Error("index of ", target, " should be >=0 ")
 		}

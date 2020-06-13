@@ -2,11 +2,13 @@ package goassessment
 
 import "fmt"
 
+// test output helper
 func shouldBe(a interface{}, b interface{}) string {
 	return fmt.Sprintf("%v should be %v\n", a, b)
 }
 
-func intSliceEqual(a []int, b []int) bool {
+// check if two slices are equal
+func testIntSliceEqual(a []int, b []int) bool {
 	if len(a) != len(b) {
 		return false
 	}
@@ -21,7 +23,7 @@ func intSliceEqual(a []int, b []int) bool {
 }
 
 // return index of target or -1 if not found
-func indexOfStrings(a []string, target string) int {
+func testIndexOfStrings(a []string, target string) int {
 	for i, v := range a {
 		if v == target {
 			return i
@@ -30,7 +32,8 @@ func indexOfStrings(a []string, target string) int {
 	return -1
 }
 
-func indexOfIntSlice(a [][]int, target []int) int {
+// find index of slice of integers in 2d array
+func testIndexOfIntSlice(a [][]int, target []int) int {
 	for i, v := range a {
 		// different lengths
 		if len(v) != len(target) {

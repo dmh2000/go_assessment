@@ -88,7 +88,27 @@ func header() string {
 }
 
 func trailer() string {
-	return "</body></html?"
+	return `
+	</body>
+	<script>
+	const socket = new WebSocket('ws://' + location.host + '/refresh');
+
+	socket.addEventListener('open', function (event) {
+		console.log('websocket open')
+	});
+
+	// Listen for messages
+	socket.addEventListener('message', function (event) {
+		console.log('Message from server ', event.data);
+		document.body.innerHTML = '<div>reloading</div>'
+		setTimeout( ()=> {
+			location.reload()
+		},100)
+	});
+
+	</script>
+	</html>
+	`
 }
 
 // TestToHTML convert test output to html

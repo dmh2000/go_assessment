@@ -8,18 +8,11 @@ import (
 
 // return a function from a function
 func TestFunction(t *testing.T) {
+	t.Log("you should be able to return a function from a function")
 	var s string
 	var r string
-	t.Log("you should be able to return a function from a function")
 
-	r = "Hello, world"
-
-	// ===============================
-	// your function
-	// ===============================
 	f := fFunction("Hello")
-
-	// check return is valid
 	if f == nil {
 		t.Error("fFunction returned nil")
 		return
@@ -31,6 +24,7 @@ func TestFunction(t *testing.T) {
 		t.Error(shouldBe(q, "func(string) string"))
 	}
 
+	r = "Hello, world"
 	s = f("world")
 	if s != r {
 		t.Error(shouldBe(s, r))
@@ -39,9 +33,10 @@ func TestFunction(t *testing.T) {
 	r = "Hai, can i haz funxtion?"
 	f = fFunction("Hai")
 	if f == nil {
-		t.Error("fFunction returnd nil")
+		t.Error("fFunction returned nil")
 	}
 
+	r = "Hai, can i haz funxtion?"
 	s = f("can i haz funxtion?")
 	if s != r {
 		t.Error(shouldBe(s, r))
@@ -55,12 +50,7 @@ func TestClosures(t *testing.T) {
 	arr := []int{rand.Int(), rand.Int(), rand.Int()}
 	square := func(x int) int { return x * x }
 
-	// ===============================
-	// your function
-	// ===============================
 	funcs := fMakeClosures(square, arr)
-	// ===============================
-
 	if len(funcs) != len(arr) {
 		t.Error(shouldBe(len(funcs), len(arr)))
 	}
@@ -82,12 +72,7 @@ func TestPartial(t *testing.T) {
 		return a + ", " + b + c
 	}
 
-	// ===============================
-	// your function
-	// ===============================
 	g := fPartial(f, "Hello", "Ellie")
-	// ===============================
-
 	// valid return
 	if g == nil {
 		t.Error("fPartial returned nil")
@@ -119,12 +104,7 @@ func TestMap(t *testing.T) {
 	a := []int{1, 2, 3, 4, 5}
 	b := []int{1, 4, 9, 16, 25}
 
-	// ===============================
-	// your function
-	// ===============================
 	c := fMap(square, a)
-	// ===============================
-
 	if len(c) != len(a) {
 		t.Error(shouldBe(len(c), len(a)))
 	}
@@ -147,12 +127,7 @@ func TestReduce(t *testing.T) {
 
 	a := []int{1, 2, 3, 4, 5}
 
-	// ===============================
-	// your function
-	// ===============================
 	b := fReduce(sum, a)
-	// ===============================
-
 	if b != 15 {
 		t.Error(shouldBe(b, 15))
 	}
@@ -166,12 +141,7 @@ func TestFilter(t *testing.T) {
 	a := []int{1, 2, 3, 4, 5}
 	b := []int{1, 3, 5}
 
-	// ===============================
-	// your function
-	// ===============================
 	c := fFilter(odd, a)
-	// ===============================
-
 	if len(c) != len(b) {
 		t.Error(shouldBe(len(c), len(b)))
 	}

@@ -23,35 +23,36 @@ func TestFlowControl(t *testing.T) {
 		t.Error(shouldBe(s, "101"))
 	}
 
-	// fizz
 	s = fizzBuzz(3)
 	if s != "fizz" {
 		t.Error(shouldBe(s, "fizz"))
 	}
+
 	s = fizzBuzz(6)
 	if s != "fizz" {
 		t.Error(shouldBe(s, "fizz"))
 	}
+
 	s = fizzBuzz(num * 3)
 	if s != "fizz" {
 		t.Error(shouldBe(s, "fizz"))
 	}
 
-	// buzz
 	s = fizzBuzz(5)
 	if s != "buzz" {
 		t.Error(shouldBe(s, "buzz"))
 	}
+
 	s = fizzBuzz(10)
 	if s != "buzz" {
 		t.Error(shouldBe(s, "buzz"))
 	}
+
 	s = fizzBuzz(num * 5)
 	if s != "buzz" {
 		t.Error(shouldBe(s, "buzz"))
 	}
 
-	// fizzbuzz
 	s = fizzBuzz(15)
 	if s != "fizzbuzz" {
 		t.Error(shouldBe(s, "fizzbuzz"))
