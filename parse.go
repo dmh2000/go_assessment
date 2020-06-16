@@ -100,7 +100,7 @@ func trailer() string {
 	// Listen for messages
 	socket.addEventListener('message', function (event) {
 		console.log('Message from server ', event.data);
-		document.body.innerHTML = '<div>reloading</div>'
+		document.body.innerHTML = '<div>running tests...</div>'
 		setTimeout( ()=> {
 			location.reload()
 		},100)
@@ -111,8 +111,19 @@ func trailer() string {
 	`
 }
 
-// TestToHTML convert test output to html
-func TestToHTML(fname string) string {
+/*
+	cmd := exec.Command("./all.sh")
+	fmt.Println("executing tests")
+	err := cmd.Run()
+	if err != nil {
+		s = err.Error()
+	} else {
+		s = TestToHTML("test.txt")
+	}
+*/
+
+// TestToHTMLScript convert test output to html
+func TestToHTMLScript(fname string) string {
 	var s string
 
 	// html header
@@ -132,6 +143,23 @@ func TestToHTML(fname string) string {
 
 	if err := scanner.Err(); err != nil {
 		log.Fatal(err)
+	}
+
+	// html trailer
+	s += fmt.Sprintf("%s", trailer())
+
+	return s
+}
+
+// TestToHTML : convert array of test results to html ouput
+func TestToHTML(results []string) string {
+	var s string
+
+	// html header
+	s = fmt.Sprintf("%s", header())
+
+	for _, v := range results {
+		s += parseTestLine(v)
 	}
 
 	// html trailer

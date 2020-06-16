@@ -4,30 +4,37 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os/exec"
 
 	"github.com/fsnotify/fsnotify"
 	"github.com/gorilla/websocket"
 )
 
+// channel for file watcher -> websocket handler
 var refresh chan string
 
+// watch for a change in any files under 'app'
+// and notify the websocket handler
 func watch() {
 
 	var w *fsnotify.Watcher
+
+	// create a watcher
 	w, err := fsnotify.NewWatcher()
 	if err != nil {
 		panic(err.Error())
 	}
+	// add the ./app directory to be watched
 	err = w.Add("./app")
 	if err != nil {
 		panic(err.Error())
 	}
 
+	// wait for file change notifications
 	var event fsnotify.Event
 	for {
 		select {
 		case event = <-w.Events:
+			// notification : signal the websocket handler
 			fmt.Println(event)
 			refresh <- "refresh"
 		case err = <-w.Errors:
@@ -37,16 +44,14 @@ func watch() {
 		}
 	}
 }
+
+// run the tests and return the results as html
 func handler(w http.ResponseWriter, r *http.Request) {
+	var t []string
 	var s string
-	cmd := exec.Command("./all.sh")
-	fmt.Println("executing tests")
-	err := cmd.Run()
-	if err != nil {
-		s = err.Error()
-	} else {
-		s = TestToHTML("test.txt")
-	}
+
+	t = runAllTests()
+	s = TestToHTML(t)
 	fmt.Fprint(w, s) // , r.URL.Path[1:])
 }
 

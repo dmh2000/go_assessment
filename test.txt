@@ -200,7 +200,7 @@ FAIL
     strings_test.go:95:  should be amanaP :lanac a ,nalp a ,nam A
         
 FAIL
-FAIL	command-line-arguments	0.001s
+FAIL	command-line-arguments	0.002s
 FAIL
 @Functions
 === RUN   TestFunction
@@ -283,21 +283,29 @@ FAIL
 @Methods
 === RUN   TestMethodsSort
 --- FAIL: TestMethodsSort (0.00s)
-    methods_test.go:22: you should be able to implement the Sort interface for a specified type
-    methods_test.go:38: {20 January} should be {18 April}
+    methods_test.go:27: you should be able to implement the Sort interface for a specified type
+    methods_test.go:46: {20 January} should be {18 April}
         
-    methods_test.go:38: {18 April} should be {20 January}
+    methods_test.go:46: {18 April} should be {20 January}
         
-    methods_test.go:38: {45 June} should be {30 August}
+    methods_test.go:46: {45 June} should be {30 August}
         
-    methods_test.go:38: {30 August} should be {45 June}
+    methods_test.go:46: {30 August} should be {45 June}
         
-=== RUN   TestMethodsInterface
---- FAIL: TestMethodsInterface (0.00s)
-    methods_test.go:56: you should be able to use an interface
-    methods_test.go:66:  should be new mail for 12345:September
+=== RUN   TestMethodsHeap
+--- FAIL: TestMethodsHeap (0.00s)
+    methods_test.go:53: you should be able to implement the Heap interface for a specified type
+    methods_test.go:80: heap should not be empty
+=== RUN   TestMethodsList
+--- FAIL: TestMethodsList (0.00s)
+    methods_test.go:96: you should be able to create and populate a list
+    methods_test.go:107: should return a list
+=== RUN   TestMethodsNotify
+--- FAIL: TestMethodsNotify (0.00s)
+    methods_test.go:137: you should be able to use an interface with different types
+    methods_test.go:149:  should be new mail for 12345:September
         
-    methods_test.go:74:  should be new mail for October
+    methods_test.go:157:  should be new mail for October
         
 FAIL
 FAIL	command-line-arguments	0.002s
