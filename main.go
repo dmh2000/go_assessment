@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"log"
 	"net/http"
 
@@ -45,14 +46,35 @@ func watch() {
 	}
 }
 
+type testPage struct {
+	Body template.HTML
+}
+
 // run the tests and return the results as html
 func handler(w http.ResponseWriter, r *http.Request) {
-	var t []string
-	var s string
+	var tests [][]string
+	var page testPage
 
-	t = runAllTests()
-	s = TestToHTML(t)
-	fmt.Fprint(w, s) // , r.URL.Path[1:])
+	// execute the tests
+	tests = runAllTests()
+
+	// compile the test results into a string
+	page.Body = template.HTML(TestToHTML(tests))
+
+	// create the template
+	t, err := template.ParseFiles("static/index.html")
+	if err != nil {
+		fmt.Println(err)
+		fmt.Fprintf(w, "server error handler:65")
+		return
+	}
+
+	err = t.Execute(w, &page)
+	if err != nil {
+		fmt.Fprint(w, err)
+	}
+
+	// fmt.Fprint(w, s) // , r.URL.Path[1:])
 }
 
 var upgrader = websocket.Upgrader{
@@ -72,6 +94,7 @@ func wshandler(w http.ResponseWriter, r *http.Request) {
 		select {
 		case <-refresh:
 			// refresh the page
+			fmt.Println("refreshing")
 			err = conn.WriteJSON(true)
 			if err != nil {
 				fmt.Println(err)

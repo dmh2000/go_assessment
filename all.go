@@ -15,6 +15,7 @@ func runTest(title string, test string) []string {
 
 	// store the title
 	s = make([]string, 0)
+	s = append(s, "@start "+test)
 	s = append(s, title)
 
 	// parse out lines in the output
@@ -28,6 +29,9 @@ func runTest(title string, test string) []string {
 		}
 	}
 	s = append(s, t)
+
+	s = append(s, "@end")
+
 	return s
 }
 
@@ -52,14 +56,14 @@ var tests []testPair = []testPair{
 }
 
 // run tests, capture all output and return it as a string
-func runAllTests() []string {
-	var s []string
+func runAllTests() [][]string {
+	var s [][]string
 	var t []string
 
-	s = make([]string, 0)
+	s = make([][]string, 0)
 	for _, p := range tests {
 		t = runTest(p.title, p.prog)
-		s = append(s, t...)
+		s = append(s, t)
 	}
 
 	return s

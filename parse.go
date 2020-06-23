@@ -1,169 +1,131 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"log"
-	"os"
 	"regexp"
+	"strings"
 )
 
-func parseTestLine(line string) string {
+type testResults struct {
+	pass bool
+	html []string
+}
+
+func parseTestLine(line string, ti *testResults) {
 	var matched bool
 	var err error
 	var r *regexp.Regexp
 	var s []string
 
+	// @start
+	r, err = regexp.Compile(`@start (.+)`)
+	s = r.FindStringSubmatch(line)
+	if err != nil {
+		panic(err)
+	}
+	if len(s) >= 2 {
+		h := []string{
+			`<a id="`,
+			s[1],
+			`"`,
+			`</a>`,
+			`<div>`,
+		}
+		ti.html = append(ti.html, strings.Join(h, ""))
+		return
+	}
+
+	// @end
+	matched, err = regexp.MatchString(`@end`, line)
+	if err != nil {
+		panic(err)
+	}
+	if matched {
+		ti.html = append(ti.html, "</div>")
+		return
+	}
+
 	// Test header
 	r, err = regexp.Compile(`@(.+)`)
 	s = r.FindStringSubmatch(line)
-	// matched, err = regexp.MatchString("@(.+)", line)
 	if err != nil {
-		panic(err.Error)
+		panic(err)
 	}
 	if len(s) >= 2 {
-		return fmt.Sprintf("<hr/><h3 class='hdr'>%s</h3><hr/>", s[1])
+		ti.html = append(ti.html, fmt.Sprintf("<hr/><div class='h5 hdr'>%s</div>", s[1]))
+		return
 	}
 
 	// === RUN
 	matched, err = regexp.MatchString(`=== RUN`, line)
 	if err != nil {
-		panic(err.Error)
+		panic(err)
 	}
 	if matched {
-		return fmt.Sprintf("<div class='run'>%s</div>", line)
+		ti.html = append(ti.html, fmt.Sprintf("<div class='run'>%s</div>", line))
+		return
 	}
+
 	matched, err = regexp.MatchString(`--- PASS`, line)
 	if err != nil {
-		panic(err.Error)
+		panic(err)
 	}
 	if matched {
-		return fmt.Sprintf("<div class='pass'>%s</div>", line)
+		ti.pass = true
+		ti.html = append(ti.html, fmt.Sprintf("<div class='pass'>%s</div>", line))
+		return
 	}
 
 	matched, err = regexp.MatchString(`--- FAIL`, line)
 	if err != nil {
-		panic(err.Error)
+		panic(err)
 	}
 	if matched {
-		return fmt.Sprintf("<div class='fail'>%s</div>", line)
+		ti.pass = false
+		ti.html = append(ti.html, fmt.Sprintf("<div class='fail'>%s</div>", line))
+		return
 	}
 
 	matched, err = regexp.MatchString(`    .+_test`, line)
 	if err != nil {
-		panic(err.Error)
+		panic(err)
 	}
 	if matched {
-		return fmt.Sprintf("<div class='item'>%s</div>", line)
+		ti.html = append(ti.html, fmt.Sprintf("<div class='item'>%s</div>", line))
+		return
 	}
 
-	matched, err = regexp.MatchString(`^FAIL`, line)
+	matched, err = regexp.MatchString(`^FAIL|^ok|^PASS`, line)
 	if err != nil {
-		panic(err.Error)
+		panic(err)
 	}
 	if matched {
-		return ""
+		ti.html = append(ti.html, "")
+		return
 	}
 
-	return fmt.Sprintf("<div class='other'>%s</div>", line)
-}
-
-func header() string {
-	s := `
-	<html>
-	<style>
-	body {
-		font-family:monospace;
-	}
-	.hdr {color:magenta;margin-top:2px;margin-bottom:2px;font-weight:bold;}
-	.run {color:blue;margin-top:2px;font-weight:bold;}
-	.fail {color:red;margin-top:2px;font-weight:bold;}
-	.pass {color:green;margin-top:2px;font-weight:bold;}
-	.item {color:blue;margin-top:1px;font-size:small;}
-	.other {color:black;margin-top:1px;}
-	</style>
-	<body>
-	`
-	return s
-}
-
-func trailer() string {
-	return `
-	</body>
-	<script>
-	const socket = new WebSocket('ws://' + location.host + '/refresh');
-
-	socket.addEventListener('open', function (event) {
-		console.log('websocket open')
-	});
-
-	// Listen for messages
-	socket.addEventListener('message', function (event) {
-		console.log('Message from server ', event.data);
-		document.body.innerHTML = '<div>running tests...</div>'
-		setTimeout( ()=> {
-			location.reload()
-		},100)
-	});
-
-	</script>
-	</html>
-	`
-}
-
-/*
-	cmd := exec.Command("./all.sh")
-	fmt.Println("executing tests")
-	err := cmd.Run()
-	if err != nil {
-		s = err.Error()
-	} else {
-		s = TestToHTML("test.txt")
-	}
-*/
-
-// TestToHTMLScript convert test output to html
-func TestToHTMLScript(fname string) string {
-	var s string
-
-	// html header
-	s = fmt.Sprintf("%s", header())
-
-	// body from test results
-	file, err := os.Open(fname)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		s += parseTestLine(scanner.Text())
-	}
-
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-
-	// html trailer
-	s += fmt.Sprintf("%s", trailer())
-
-	return s
+	ti.html = append(ti.html, fmt.Sprintf("<div class='other'>%s</div>", line))
+	return
 }
 
 // TestToHTML : convert array of test results to html ouput
-func TestToHTML(results []string) string {
-	var s string
-
+func TestToHTML(results [][]string) string {
+	var ti testResults
 	// html header
-	s = fmt.Sprintf("%s", header())
+	// s = fmt.Sprintf("%s", header())
 
-	for _, v := range results {
-		s += parseTestLine(v)
+	for i := 0; i < len(results); i++ {
+		// get test info
+		// ...
+
+		// get the test strings
+		for _, v := range results[i] {
+			parseTestLine(v, &ti)
+		}
 	}
 
 	// html trailer
-	s += fmt.Sprintf("%s", trailer())
+	// s += fmt.Sprintf("%s", trailer())
 
-	return s
+	return strings.Join(ti.html, "")
 }
