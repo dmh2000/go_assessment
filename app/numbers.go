@@ -11,3 +11,9 @@ func base10(n string) int {
 func convertToBinary(num int) string {
 	return ""
 }
+
+func sqrtComplex(a float64) complex128 {
+	var z complex128
+
+	return z
+}

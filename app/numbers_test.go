@@ -1,6 +1,8 @@
 package goassessment
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestValueAtBit(t *testing.T) {
 	t.Log("you should be able to find the value of a given bit")
@@ -29,7 +31,7 @@ func TestValueAtBit(t *testing.T) {
 }
 
 func TestBase10(t *testing.T) {
-	t.Log("you should be able to return the base10 representation of a binary string'")
+	t.Log("you should be able to return the base10 representation of a binary string")
 	var val int
 
 	val = base10("11000000")
