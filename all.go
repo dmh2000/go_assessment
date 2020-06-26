@@ -45,9 +45,9 @@ type testPair struct {
 var tests []testPair = []testPair{
 	{"@Flow Control", "flowControl"},
 	{"@Slices", "slices"},
-	{"@Numbers", "numbers"},
+	{"@Binary", "binary"},
 	{"@Logical Operators", "logicalOperators"},
-	{"@Strings", "strings"},
+	{"@Binary", "binary"},
 	{"@Functions", "functions"},
 	{"@Recursion", "recursion"},
 	{"@Methods", "methods"},

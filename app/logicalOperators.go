@@ -1,13 +1,16 @@
 package goassessment
 
-func or(a bool, b bool) bool {
+// write a function that returns true if either argument is true
+func either(a bool, b bool) bool {
 	return true
 }
 
-func and(a bool, b bool) bool {
+// write a function that returns true only if both arguments are true
+func both(a bool, b bool) bool {
 	return true
 }
 
-func not(a bool) bool {
+// write a function that returns true only if both arguments are false
+func none(a bool, b bool) bool {
 	return true
 }

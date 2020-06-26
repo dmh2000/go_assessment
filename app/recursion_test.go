@@ -81,6 +81,7 @@ func TestListDir(t *testing.T) {
 }
 
 var permData = []int{1, 2, 3, 4}
+
 var permutations = [][]int{
 	{1, 2, 3, 4},
 	{1, 2, 4, 3},
@@ -108,6 +109,7 @@ var permutations = [][]int{
 	{4, 3, 2, 1},
 }
 
+// Note : order of return values is arbitrary
 func TestPermute(t *testing.T) {
 
 	t.Log("you should be able to return the permutations of an array")
@@ -120,7 +122,7 @@ func TestPermute(t *testing.T) {
 		t.Error(shouldBe(len(result), len(permutations)))
 	}
 
-	// check for all permutations
+	// check for all permutations, order not required
 	for _, target := range result {
 		index := testIndexOfIntSlice(permutations, target)
 		if index < 0 {
@@ -140,5 +142,26 @@ func TestFibonacci(t *testing.T) {
 	fib = fibonacci(6)
 	if fib != 8 {
 		t.Error(shouldBe(fib, 8))
+	}
+}
+
+func TestValidParens(t *testing.T) {
+	t.Log("you should be able to return the set of all valid combinations of n pairs of parentheses.")
+
+	var s []string
+	var r []string
+
+	r = []string{"((()))", "(()())", "(())()", "()(())", "()()()"}
+
+	s = validParentheses(3)
+	if len(s) != len(r) {
+		t.Error(shouldBe(len(s), len(r)))
+	}
+
+	for i := 0; i < len(r); i++ {
+		index := testIndexOfStrings(s, r[i])
+		if index < 0 {
+			t.Error(s, "should contain", r[i])
+		}
 	}
 }

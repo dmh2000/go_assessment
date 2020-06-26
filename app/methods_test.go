@@ -22,7 +22,7 @@ type Employee struct {
 
 type EmployeeSlice []Employee
 
-// Sort
+// Sort : implement Sort for PersonSlice
 func TestMethodsSort(t *testing.T) {
 	t.Log("you should be able to implement the Sort interface for a specified type")
 
@@ -48,7 +48,7 @@ func TestMethodsSort(t *testing.T) {
 	}
 }
 
-// Heap
+// Heap : implement a Heap for PersonSlice
 func TestMethodsHeap(t *testing.T) {
 	t.Log("you should be able to implement the Heap interface for a specified type")
 

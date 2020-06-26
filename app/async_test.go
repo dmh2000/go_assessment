@@ -6,6 +6,14 @@ import (
 	"time"
 )
 
+/**
+ * Write a function, delayedCount, that takes two arguments:
+ * a send channel 'c' and a receive channel 'q'.
+ * The function is called within a goroutine.
+ * The function should send the values 0 .. 4  on the send channel,
+ * with a delay of 10 milliseconds or greater before sending each value.
+ * The function should return when a message is received on the 'q' channel
+ */
 func TestAsync(t *testing.T) {
 
 	t.Log("you should be able to send values to a channel with a delay")
@@ -39,7 +47,7 @@ func TestAsync(t *testing.T) {
 			t1 := time.Now()
 			d := t1.Sub(t0)
 			if d.Milliseconds() < 10 {
-				t.Error(d.Milliseconds(), "should be greater than 10")
+				t.Error("delay of ", d.Milliseconds(), "should be greater than 10ms")
 			}
 		}
 		q <- 0
