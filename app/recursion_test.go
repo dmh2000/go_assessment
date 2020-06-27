@@ -33,6 +33,7 @@ var fileData = Dir{
 	},
 }
 
+// write a function that returns a list of files starting from the named directory
 func TestListFiles(t *testing.T) {
 	t.Log("you should be able to return a list of files from the data")
 	var index int
@@ -59,6 +60,7 @@ func TestListFiles(t *testing.T) {
 	}
 }
 
+// wrote a function that returns all permutations of the input array
 func TestListDir(t *testing.T) {
 	t.Log("you should be able to return a list of files in a subdir")
 	var index int
@@ -109,6 +111,7 @@ var permutations = [][]int{
 	{4, 3, 2, 1},
 }
 
+// write a function that returns the fibonnaci number of n
 // Note : order of return values is arbitrary
 func TestPermute(t *testing.T) {
 
@@ -131,6 +134,7 @@ func TestPermute(t *testing.T) {
 	}
 }
 
+// write a function that returns the fibonnaci number of n
 func TestFibonacci(t *testing.T) {
 	t.Log("you should be able to return the nth number in a fibonacci sequence")
 	var fib int
@@ -145,6 +149,7 @@ func TestFibonacci(t *testing.T) {
 	}
 }
 
+// write a function that returns an array of strings with all valid sets of n parens
 func TestValidParens(t *testing.T) {
 	t.Log("you should be able to return the set of all valid combinations of n pairs of parentheses.")
 

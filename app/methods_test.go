@@ -48,7 +48,7 @@ func TestMethodsSort(t *testing.T) {
 	}
 }
 
-// Heap : implement a Heap for PersonSlice
+// fix the Heap interface for PersonSlice sorted by ascending age
 func TestMethodsHeap(t *testing.T) {
 	t.Log("you should be able to implement the Heap interface for a specified type")
 
@@ -91,7 +91,7 @@ func TestMethodsHeap(t *testing.T) {
 	}
 }
 
-// Heap
+// write a function that creates and populates a list
 func TestMethodsList(t *testing.T) {
 	t.Log("you should be able to create and populate a list")
 	var p *list.List
@@ -108,15 +108,17 @@ func TestMethodsList(t *testing.T) {
 		return
 	}
 
-	for i := 0; i < len(q); i++ {
-		e = p.Front()
-		if e == nil {
-			t.Error("list should not be empty")
-			break
+	e = p.Front()
+	i := 0
+	for e != nil {
+		if i >= len(q) {
+			t.Error("list is too long")
 		}
 		if e.Value.(Person).name != q[i].name {
 			t.Error(shouldBe(e.Value.(Person), q[i]))
 		}
+		i++
+		e = e.Next()
 	}
 }
 
@@ -155,5 +157,20 @@ func TestMethodsNotify(t *testing.T) {
 	r = "new mail for October"
 	if s != r {
 		t.Error(shouldBe(s, r))
+	}
+}
+
+// write a function that returns an integer value from an interface{}
+func TestIntFromInterface(t *testing.T) {
+	t.Log("you shoud be able to extract a value from an interface")
+	var x interface{}
+	var i int
+	var r int
+
+	x = 5
+	r = 5
+	i = intFromInterface(x)
+	if i != r {
+		t.Error(shouldBe(i, r))
 	}
 }

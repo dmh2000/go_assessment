@@ -30,6 +30,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// execute the template
 	err = t.Execute(w, &page)
 	if err != nil {
 		fmt.Fprint(w, err)

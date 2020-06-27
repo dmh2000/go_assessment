@@ -2,6 +2,7 @@ package goassessment
 
 import "testing"
 
+// write a function that reduces duplicate characters
 func TestReduceString(t *testing.T) {
 	t.Log("you should be able to reduce duplicate characters to a desired minimum")
 
@@ -38,6 +39,7 @@ func TestReduceString(t *testing.T) {
 
 }
 
+// write a function that wraps lines at a given number of columns without breaking works
 func TestWordWrap(t *testing.T) {
 	t.Log("you should be able to wrap lines at a given number of columns, without breaking words")
 	var s string
@@ -70,6 +72,7 @@ func TestWordWrap(t *testing.T) {
 
 }
 
+// write a function that reverses the characters in a string
 func TestReverseString(t *testing.T) {
 	var s string
 	var r string

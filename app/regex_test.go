@@ -2,6 +2,7 @@ package goassessment
 
 import "testing"
 
+// write a function that checks if the string contains a decimal number
 func TestContainsNumber(t *testing.T) {
 	t.Log("you should be able to detect a number in a string")
 	var b bool
@@ -17,6 +18,7 @@ func TestContainsNumber(t *testing.T) {
 	}
 }
 
+// write a function that checks if the string contains repeated letters
 func TestRepeatingLetter(t *testing.T) {
 	t.Log("you should be able to detect a repeating letter in a string")
 	var b bool
@@ -47,6 +49,7 @@ func TestRepeatingLetter(t *testing.T) {
 	}
 }
 
+// write a function that checks if the string ends with a vowel
 func TestEndsWithVowel(t *testing.T) {
 	t.Log("you should be able to determine whether a string ends with a vowel (aeiou)")
 	var b bool
@@ -67,6 +70,7 @@ func TestEndsWithVowel(t *testing.T) {
 	}
 }
 
+// write a function that captures and returns the first string of 3 decimal digits
 func TestCaptureThreeNumbers(t *testing.T) {
 	t.Log("you should be able to capture the first series of three numbers")
 	var s string
@@ -101,6 +105,7 @@ func TestCaptureThreeNumbers(t *testing.T) {
 	}
 }
 
+// write a function that checks if the string matches a specified pattern
 func TestMatchesPattern(t *testing.T) {
 	t.Log("you should be able to determine whether a string matches a pattern")
 	// the pattern is XXX-XXX-XXXX where all X"s are digits
@@ -147,6 +152,7 @@ func TestMatchesPattern(t *testing.T) {
 	}
 }
 
+// write a function that checks if the string is a correctly-formatted monetary amounts in USD
 func TestIsUSD(t *testing.T) {
 	t.Log("you should be able to detect correctly-formatted monetary amounts in USD")
 	var b bool
