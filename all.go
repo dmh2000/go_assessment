@@ -47,7 +47,7 @@ var tests []testPair = []testPair{
 	{"@Slices", "slices"},
 	{"@Binary", "binary"},
 	{"@Logical Operators", "logicalOperators"},
-	{"@Binary", "binary"},
+	{"@Strings", "strings"},
 	{"@Functions", "functions"},
 	{"@Recursion", "recursion"},
 	{"@Methods", "methods"},

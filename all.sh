@@ -24,13 +24,21 @@ echo "Functions"
 echo "Functions" >>test.txt
 go test -v ./app/functions*.go ./app/test_util.go &>>test.txt
 
+echo "Recursion"
 echo "Recursion" >>test.txt
 go test -v ./app/recursion*.go ./app/test_util.go &>>test.txt
+
+echo "Methods"
 echo "Methods" >>test.txt
 go test -v ./app/method*.go  ./app/test_util.go &>>test.txt
+
+echo "Regex"
 echo "Regex" >>test.txt
 go test -v ./app/regex*.go  ./app/test_util.go &>>test.txt
+
+echo Async
 echo "Async" >>test.txt
+go test -v ./app/async*.go  ./app/test_util.go &>>test.txt
 
 cat test.txt
 exit 0

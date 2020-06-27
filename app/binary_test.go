@@ -63,8 +63,8 @@ func TestBitwiseOr(t *testing.T) {
 	var x int
 	var r int
 
-	r = 78677
-	x = bitwiseOr(0x12345, 0x11111, 0xabcde)
+	r = 770047
+	x = bitwiseOr(0x12345, 0x33333, 0xabcde)
 	if x != r {
 		t.Error(shouldBe(x, r))
 	}
@@ -75,8 +75,8 @@ func TestBitwiseAnd(t *testing.T) {
 	var x int
 	var r int
 
-	r = 65793
-	x = bitwiseOr(0x12345, 0x11111, 0xabcde)
+	r = 8192
+	x = bitwiseOr(0x12345, 0x33333, 0xabcde)
 	if x != r {
 		t.Error(shouldBe(x, r))
 	}
@@ -88,8 +88,8 @@ func TestBitwiseXor(t *testing.T) {
 	var x int
 	var r int
 
-	r = 12884
-	x = bitwiseOr(0x12345, 0x11111, 0xabcde)
+	r = 568488
+	x = bitwiseOr(0x12345, 0x33333, 0xabcde)
 	if x != r {
 		t.Error(shouldBe(x, r))
 	}

@@ -17,6 +17,7 @@ go test -v ./app/method*.go  ./app/test_util.go 1> test.txt 2>&1
 @echo "Regex" >>test.txt
 go test -v ./app/regex*.go  ./app/test_util.go 1> test.txt 2>&1
 @echo "Async" >>test.txt
+go test -v ./app/async*.go  ./app/test_util.go 1> test.txt 2>&1
 
 type test.txt
 exit 0
