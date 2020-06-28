@@ -25,11 +25,10 @@ func parseTestLine(line string, ti *testResults) {
 	}
 	if len(s) >= 2 {
 		h := []string{
+			`<div>`,
 			`<a id="`,
 			s[1],
-			`"`,
-			`</a>`,
-			`<div>`,
+			`"></a>`,
 		}
 		ti.html = append(ti.html, strings.Join(h, ""))
 		return
@@ -41,7 +40,10 @@ func parseTestLine(line string, ti *testResults) {
 		panic(err)
 	}
 	if matched {
-		ti.html = append(ti.html, "</div>")
+		h := []string{
+			`</div>`,
+		}
+		ti.html = append(ti.html, strings.Join(h, ""))
 		return
 	}
 
@@ -52,7 +54,18 @@ func parseTestLine(line string, ti *testResults) {
 		panic(err)
 	}
 	if len(s) >= 2 {
-		ti.html = append(ti.html, fmt.Sprintf("<hr/><div class='h5 hdr'>%s</div>", s[1]))
+		h := []string{
+			`<hr/>`,
+			`<div style="width:80%;overflow:hidden">`,
+			`<span style="float:left;" class="h5 hdr">`,
+			s[1],
+			`</span>`,
+			`<span style="float:right;"><a href="#top">&nbsp;▲&nbsp;</a></span>`,
+			`</div>`,
+		}
+		ti.html = append(ti.html, strings.Join(h, ""))
+		// ti.html = append(ti.html, fmt.Sprintf("<div style='width:'80%;'><span style='float:left;' class='h5 hdr'>%s</span><span style='float:right;'><a href='#top'>top</span></div>", s[1]))
+		// ti.html = append(ti.html, fmt.Sprintf("<hr/><div class='h5 hdr'>%s</div>", s[1]))
 		return
 	}
 
