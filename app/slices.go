@@ -32,32 +32,32 @@ func back(a []int) int {
 
 // write a function that adds an item to the end of a slice
 func pushBack(a []int, item int) []int {
-	return nil
+	return a
 }
 
 // write a function that removes an item to the end of a slice
 func popBack(a []int) []int {
-	return nil
+	return a
 }
 
 // write a function that adds an item to the front of a slice
 func pushFront(a []int, item int) []int {
-	return nil
+	return a
 }
 
 // write a function that removes an item from the front of a slice
 func popFront(a []int) []int {
-	return nil
+	return a
 }
 
 // write a function that concatenates two slices
 func concat(a []int, b []int) []int {
-	return nil
+	return a
 }
 
 // write a function that adds an item to a slice at the specified index
 func insert(a []int, item int, index int) []int {
-	return nil
+	return a
 }
 
 // write a function that returns a count of matching items in a slice
@@ -67,15 +67,15 @@ func count(a []int, item int) int {
 
 // write a function that finds duplicates in a slice
 func duplicates(a []int) []int {
-	return nil
+	return a
 }
 
 // write a function that sqaures all items in a slice
 func square(a []int) []int {
-	return nil
+	return a
 }
 
 // write a function that returns all the indices in a slice that matches an item
 func findAllOccurrences(a []int, item int) []int {
-	return nil
+	return a
 }

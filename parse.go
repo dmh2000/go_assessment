@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// results of a single test
 type testResults struct {
 	pass bool
 	html []string
@@ -16,6 +17,10 @@ func parseTestLine(line string, ti *testResults) {
 	var err error
 	var r *regexp.Regexp
 	var s []string
+
+	// ===================================================================
+	// find matches to the line format and output the corresponding HTML
+	// ===================================================================
 
 	// @start
 	r, err = regexp.Compile(`@start (.+)`)
@@ -56,13 +61,12 @@ func parseTestLine(line string, ti *testResults) {
 		return
 	}
 
-	// === RUN
 	matched, err = regexp.MatchString(`=== RUN`, line)
 	if err != nil {
 		panic(err)
 	}
 	if matched {
-		ti.html = append(ti.html, fmt.Sprintf("<div class='run'>%s</div>", line))
+		// don't print the === RUN output
 		return
 	}
 
@@ -100,32 +104,23 @@ func parseTestLine(line string, ti *testResults) {
 		panic(err)
 	}
 	if matched {
-		ti.html = append(ti.html, "")
 		return
 	}
 
-	ti.html = append(ti.html, fmt.Sprintf("<div class='other'>%s</div>", line))
 	return
 }
 
 // TestToHTML : convert array of test results to html ouput
 func TestToHTML(results [][]string) string {
 	var ti testResults
-	// html header
-	// s = fmt.Sprintf("%s", header())
 
+	// for each line in the test results
 	for i := 0; i < len(results); i++ {
-		// get test info
-		// ...
-
-		// get the test strings
+		// transform line to HTML
 		for _, v := range results[i] {
 			parseTestLine(v, &ti)
 		}
 	}
-
-	// html trailer
-	// s += fmt.Sprintf("%s", trailer())
 
 	return strings.Join(ti.html, "")
 }
