@@ -11,16 +11,10 @@ had not written any js for a few months. I think a similar tool for Go will be u
 for the same reason. The tool will be useful for go beginners to go beyond a tutorial and
 implement some simple (and a few not-so-simple) Go code without being spoon fed.
 
-<<<<<<< HEAD
 This tool is not meant to be a leetcode challenge. The point is to learn or refresh you skill with Go.
 Most of the tests and implementations are straightforward. A few are harder, require a bit of
 algorithm knowledge or the ability to look up a solution. If you have gone through the
 official golang tutorial you will know enough to make most of the tests pass.
-=======
-This tool is not meant to be a leetcode challenge. Most of the tests and implementations are
-straightforward. A few are harder, require a bit of algorithm knowledge or the ability to look
-up a solution. The point is to learn or refresh you skill with Go.
->>>>>>> e3e4fafd1a4f3bdcc547ec276809298a3e645a32
 
 The way this tool works is that it relies on Test Driven Development using the [native Go test
 framework](https://golang.org/pkg/testing/). The ./app directory
@@ -28,7 +22,6 @@ contains a set of test files (xxxx_test.go) and a corresponding skeleton file (x
 the required function definitions but missing the implementations. The \*\_test files
 are the specifications for the functions. The goal is to provide the implementations in the
 skeleton files to pass the tests. If the tests are not passing, dig into the \*\_test.go files
-<<<<<<< HEAD
 to figure out what the requirement is, then fix the skeleton file so the tests pass.
 You are done when all tests pass. You should not have to modify anything in the test files,
 only the skeleton files (unless the tests have a bug in which case feel free to report it).
@@ -40,11 +33,6 @@ Here's how to work this:
 3. Loop
    - run the tests (all will fail first time)
    - modify the skeleton files in ./app until the test pass
-=======
-to figure out what the requirement is. You are done when all tests pass. You should not have to
-modify anything in the test files, only the skeleton files (unless the tests have a bug in which
-case feel free to report it).
->>>>>>> e3e4fafd1a4f3bdcc547ec276809298a3e645a32
 
 To run the tests you have some choices.
 
