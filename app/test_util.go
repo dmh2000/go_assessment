@@ -1,6 +1,9 @@
 package goassessment
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 // test output helper
 func shouldBe(a interface{}, b interface{}) string {
@@ -47,4 +50,13 @@ func testIndexOfIntSlice(a [][]int, target []int) int {
 		}
 	}
 	return -1
+}
+
+// catch a panic in a test
+// must be called with defer
+func testPanic(t *testing.T) {
+	r := recover()
+	if r != nil {
+		t.Error("panic in solution")
+	}
 }

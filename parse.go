@@ -112,6 +112,15 @@ func parseTestLine(line string, ti *testResults) {
 		return
 	}
 
+	matched, err = regexp.MatchString(`    test_util.go`, line)
+	if err != nil {
+		panic(err)
+	}
+	if matched {
+		ti.html = append(ti.html, fmt.Sprintf("<div class='item'>%s</div>", line))
+		return
+	}
+
 	matched, err = regexp.MatchString(`^FAIL|^ok|^PASS`, line)
 	if err != nil {
 		panic(err)
