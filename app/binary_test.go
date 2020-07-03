@@ -9,17 +9,23 @@ func TestValueAtBit(t *testing.T) {
 	t.Log("you should be able to find the value of a given bit")
 	var bit int
 
-	bit = valueAtbit(128, 8)
+	// first bit is at bit position 0
+	bit = valueAtbit(1, 0)
 	if bit != 1 {
 		t.Error(shouldBe(bit, 1))
 	}
 
-	bit = valueAtbit(65, 1)
+	bit = valueAtbit(128, 7)
 	if bit != 1 {
 		t.Error(shouldBe(bit, 1))
 	}
 
-	bit = valueAtbit(65, 7)
+	bit = valueAtbit(65, 0)
+	if bit != 1 {
+		t.Error(shouldBe(bit, 0))
+	}
+
+	bit = valueAtbit(65, 6)
 	if bit != 1 {
 		t.Error(shouldBe(bit, 1))
 	}
@@ -53,8 +59,8 @@ func TestConvertoBinary(t *testing.T) {
 	}
 
 	bin = convertToBinary(65)
-	if bin != "01000001" {
-		t.Error(shouldBe(bin, "01000001"))
+	if bin != "1000001" {
+		t.Error(shouldBe(bin, "1000001"))
 	}
 }
 
@@ -76,7 +82,7 @@ func TestBitwiseAnd(t *testing.T) {
 	var r int
 
 	r = 8192
-	x = bitwiseOr(0x12345, 0x33333, 0xabcde)
+	x = bitwiseAnd(0x12345, 0x33333, 0xabcde)
 	if x != r {
 		t.Error(shouldBe(x, r))
 	}
@@ -88,8 +94,8 @@ func TestBitwiseXor(t *testing.T) {
 	var x int
 	var r int
 
-	r = 568488
-	x = bitwiseOr(0x12345, 0x33333, 0xabcde)
+	r = 201559
+	x = bitwiseXor(0x12345, 0x33333, 0xabcde)
 	if x != r {
 		t.Error(shouldBe(x, r))
 	}

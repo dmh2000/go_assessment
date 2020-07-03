@@ -60,7 +60,7 @@ func TestLogicalNot(t *testing.T) {
 	var b bool
 
 	b = none(false, true)
-	if !b {
+	if b {
 		t.Error(shouldBe(b, false))
 	}
 
@@ -75,7 +75,7 @@ func TestLogicalNot(t *testing.T) {
 	}
 
 	b = none(false, false)
-	if b {
+	if !b {
 		t.Error(shouldBe(b, true))
 	}
 }

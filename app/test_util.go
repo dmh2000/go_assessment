@@ -2,6 +2,7 @@ package goassessment
 
 import (
 	"fmt"
+	"runtime"
 	"testing"
 )
 
@@ -57,6 +58,11 @@ func testIndexOfIntSlice(a [][]int, target []int) int {
 func testPanic(t *testing.T) {
 	r := recover()
 	if r != nil {
-		t.Error("panic in solution")
+		_, _, line, ok := runtime.Caller(3)
+		if ok {
+			t.Error("panic in solution at line ", line)
+		} else {
+			t.Error("panic in solution (no file/line available) ")
+		}
 	}
 }

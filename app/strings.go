@@ -1,6 +1,6 @@
 package goassessment
 
-// write a function that reduces duplicate characters
+// write a function that reduces repeated characters
 func reduceString(s string, count int) string {
 	return ""
 }
