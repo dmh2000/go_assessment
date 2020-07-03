@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"regexp"
+	"time"
 )
 
 // anything but / and /index.html
@@ -45,13 +46,20 @@ func handleTests(w http.ResponseWriter, r *http.Request) {
 	}
 
 	log.Println("req:", r.RequestURI)
-	log.Println("Running Tests")
 
 	var tests [][]string
 	var page testPage
 
+	log.Println("Tests Started")
+
 	// execute the tests
+	t0 := time.Now()
 	tests = runAllTests()
+	t1 := time.Now()
+	// tests finished
+
+	// print time for tests to execute
+	log.Println("Tests Finished:", t1.Sub(t0))
 
 	// compile the test results into a string
 	page.Body = template.HTML(TestToHTML(tests))
