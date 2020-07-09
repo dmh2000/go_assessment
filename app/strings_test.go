@@ -4,8 +4,9 @@ import "testing"
 
 // write a function that reduces repeated characters
 func TestReduceString(t *testing.T) {
-	t.Log("you should be able to reduce repeated characters to a desired minimum")
+	defer testPanic(t) // handle panics and syntax errors
 
+	t.Log("you should be able to reduce adjacent repeated characters to a desired minimum")
 	var s string
 	var r string
 
@@ -37,16 +38,24 @@ func TestReduceString(t *testing.T) {
 		t.Error(shouldBe(s, r))
 	}
 
+	s = "aaxxxaabbbb"
+	r = "axab"
+	s = reduceString(s, 1)
+	if s != r {
+		t.Error(shouldBe(s, r))
+	}	
 }
 
 // write a function that wraps lines at a given number of columns without breaking works
 func TestWordWrap(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
 	t.Log("you should be able to wrap lines at a given number of columns, without breaking words")
 	var s string
 	var r string
 	var column int
 
-	// use underscore to indicate where a wrap would occur
+	// !!! use underscore to indicate where a wrap would occur
 
 	column = 5
 	s = "abcdef abcde abc def"
@@ -74,6 +83,8 @@ func TestWordWrap(t *testing.T) {
 
 // write a function that reverses the characters in a string
 func TestReverseString(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
 	t.Log("you should be able to reverse the characters in a string")
 	var s string
 	var r string

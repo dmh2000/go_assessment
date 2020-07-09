@@ -6,6 +6,8 @@ import (
 
 // write a function that returns the 0 or 1 value at the specified bit position
 func TestValueAtBit(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors // handle panics and syntax errors
+
 	t.Log("you should be able to find the value of a given bit")
 	var bit int
 
@@ -39,6 +41,8 @@ func TestValueAtBit(t *testing.T) {
 
 // write a function that returns the base 10 integer value of the binary string
 func TestBase10(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors // handle panics and syntax errors
+
 	t.Log("you should be able to return the base10 representation of a binary string")
 	var val int
 
@@ -50,6 +54,8 @@ func TestBase10(t *testing.T) {
 
 // write a function taht converts the int value to a binary string
 func TestConvertoBinary(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors // handle panics and syntax errors
+
 	t.Log("you should be able to convert an eight-bit number to a binary string")
 	var bin string
 
@@ -66,6 +72,9 @@ func TestConvertoBinary(t *testing.T) {
 
 // write a function that returns the bitwise OR of the input values
 func TestBitwiseOr(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors // handle panics and syntax errors
+
+	t.Log("you should be able to use the bitwise OR operator")
 	var x int
 	var r int
 
@@ -78,6 +87,9 @@ func TestBitwiseOr(t *testing.T) {
 
 // write a function that returns the bitwise AND of the input values
 func TestBitwiseAnd(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors // handle panics and syntax errors
+
+	t.Log("you should be able to use the bitwise AND operator")
 	var x int
 	var r int
 
@@ -91,6 +103,9 @@ func TestBitwiseAnd(t *testing.T) {
 
 // write a function that returns the bitwise XOR of the input values
 func TestBitwiseXor(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors // handle panics and syntax errors
+
+	t.Log("you should be able to use the bitwise XOR operator")
 	var x int
 	var r int
 

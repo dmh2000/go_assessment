@@ -8,6 +8,8 @@ import (
 
 // write a function that returns a function
 func TestFunction(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
 	t.Log("you should be able to return a function from a function")
 	var s string
 	var r string
@@ -46,6 +48,8 @@ func TestFunction(t *testing.T) {
 
 // write a function that returns a slice of closures
 func TestClosures(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
 	t.Log("you should be able to use closures")
 
 	arr := []int{rand.Int(), rand.Int(), rand.Int()}
@@ -67,6 +71,8 @@ func TestClosures(t *testing.T) {
 
 // write a function that implements a partial application
 func TestPartial(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
 	t.Log("you should be able to create a 'partial' function")
 
 	f := func(a string, b string, c string) string {
@@ -100,7 +106,9 @@ func TestPartial(t *testing.T) {
 // write a function that creates a new array populated
 // with the result of calling the provided function
 func TestMap(t *testing.T) {
-	t.Log("you should be able to implement a function MAP function")
+	defer testPanic(t) // handle panics and syntax errors
+
+	t.Log("you should be able to implement a MAP function")
 
 	square := func(x int) int { return x * x }
 
@@ -121,7 +129,9 @@ func TestMap(t *testing.T) {
 
 // write a function that applies the reducer to a slice of integers
 func TestReduce(t *testing.T) {
-	t.Log("you should be able to implement a function REDUCE function")
+	defer testPanic(t) // handle panics and syntax errors
+
+	t.Log("you should be able to implement a REDUCE function")
 
 	sum := func(acc int, val int) int {
 		acc += val
@@ -138,6 +148,9 @@ func TestReduce(t *testing.T) {
 
 // write a function that applies the filter to a slice of integers
 func TestFilter(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
+	t.Log("you should be able to implement a FILTER function")
 
 	// condition
 	odd := func(v int) bool { return (v % 2) == 1 }
@@ -159,6 +172,9 @@ func TestFilter(t *testing.T) {
 
 // write a function that handles a variadic argument
 func TestVariadic(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
+	t.Log("you should be able to implement a variadic function")
 
 	a := []int{1, 2, 3, 4, 5}
 

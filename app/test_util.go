@@ -60,9 +60,9 @@ func testPanic(t *testing.T) {
 	if r != nil {
 		_, _, line, ok := runtime.Caller(3)
 		if ok {
-			t.Error("panic in solution at line ", line)
+			t.Errorf("panic in solution at line %v : %v", line, r)
 		} else {
-			t.Error("panic in solution (no file/line available) ")
+			t.Errorf("panic in solution %v", r)
 		}
 	}
 }

@@ -24,6 +24,8 @@ type EmployeeSlice []Employee
 
 // Sort : implement Sort for PersonSlice
 func TestMethodsSort(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
 	t.Log("you should be able to implement the Sort interface for a specified type")
 
 	// unsorted
@@ -50,6 +52,8 @@ func TestMethodsSort(t *testing.T) {
 
 // fix the Heap interface for PersonSlice sorted by ascending age
 func TestMethodsHeap(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
 	t.Log("you should be able to implement the Heap interface for a specified type")
 
 	p := PersonSlice{
@@ -93,6 +97,8 @@ func TestMethodsHeap(t *testing.T) {
 
 // write a function that creates and populates a list
 func TestMethodsList(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
 	t.Log("you should be able to create and populate a list")
 	var p *list.List
 	var e *list.Element
@@ -136,6 +142,8 @@ func (e Employee) notify() string {
 }
 
 func TestMethodsNotify(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
 	t.Log("you should be able to use an interface with different types")
 	var s string
 	var r string
@@ -162,6 +170,8 @@ func TestMethodsNotify(t *testing.T) {
 
 // write a function that returns an integer value from an interface{}
 func TestIntFromInterface(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
 	t.Log("you shoud be able to extract a value from an interface")
 	var x interface{}
 	var i int

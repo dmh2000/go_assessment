@@ -15,6 +15,7 @@ import (
  * The function should return when a message is received on the 'q' channel
  */
 func TestAsync(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors // handle panics and syntax errors
 
 	t.Log("you should be able to send values to a channel with a delay")
 
