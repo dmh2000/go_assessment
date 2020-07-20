@@ -33,14 +33,14 @@ var fileData = Dir{
 	},
 }
 
-// write a function that returns a list of files starting from the named directory
+// write a function that returns a list of files starting at the top level directory
 func TestListFiles(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
 
-	t.Log("you should be able to return a list of files from the data")
+	t.Log("you should be able to return a list of files starting at the top level direcotry")
 	var index int
-	// passing in 'nil' means list all files
 
+	// passing in empty string "" means list all files from the top level
 	var result = listFiles(fileData, "")
 	if len(result) != 8 {
 		t.Error(shouldBe(len(result), 8))
@@ -57,22 +57,21 @@ func TestListFiles(t *testing.T) {
 	}
 
 	index = testIndexOfStrings(result, "notfound.js")
-	if index < 0 {
+	if index > 0 {
 		t.Error(shouldBe(index, -1))
 	}
 }
 
-// wrote a function that returns all permutations of the input array
+// wrote a function that returns a list of all files starting at the named subdirectory
 func TestListDir(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
 
-	t.Log("you should be able to return a list of files in a subdir")
+	t.Log("you should be able to return a list of files starting at the named subdirectory")
 	var index int
-	// passing in 'nil' means list all files
 
 	var result = listFiles(fileData, "js")
-	if len(result) != 5 {
-		t.Error(shouldBe(len(result), 5))
+	if len(result) != 7 {
+		t.Error(shouldBe(len(result), 7))
 	}
 
 	index = testIndexOfStrings(result, "main.js")
@@ -80,9 +79,9 @@ func TestListDir(t *testing.T) {
 		t.Error(index, "should be >= 0")
 	}
 
-	index = testIndexOfStrings(result, "underscore.js")
-	if index < 0 {
-		t.Error(index, "should be >= 0")
+	index = testIndexOfStrings(result, "index.html")
+	if index > 0 {
+		t.Error(shouldBe(index, -1))
 	}
 }
 

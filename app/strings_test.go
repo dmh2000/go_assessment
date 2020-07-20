@@ -1,6 +1,121 @@
 package goassessment
 
-import "testing"
+import (
+	"testing"
+)
+
+// write a function that composes a string from arguments
+func TestStringCompose(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
+	t.Log("you should be able to compose a string from arguments")
+	var s string
+	var r string
+	s = composeString("Hello", "World")
+	r = "Hello, World\n"
+
+	if s != r {
+		t.Error(shouldBe(s, r))
+	}
+}
+
+// write a function that returns a string from a byte array
+func TestStringFromBytes(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
+	t.Log("you should be able to convert a byte array to a string")
+	var s string
+	var r string
+	var b []byte
+
+	b = []byte{72, 101, 108, 108, 111, 44, 32, 87, 111, 114, 108, 100, 10}
+	s = fromBytes(b)
+	r = "Hello, World\n"
+
+	if s != r {
+		t.Error(shouldBe(s, r))
+	}
+}
+
+// write a function that takes a string and returns an array of runes
+func TestRunes(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
+	t.Log("you should be able to decompose a UTF-8 string into an array of runes")
+	var s string
+	var r []rune
+	var u []rune
+
+	s = "✋ 👍 👎 ✊"
+	u = []rune{9995, 32, 128077, 32, 128078, 32, 9994}
+	r = runesFromString(s)
+
+	// are they the same length
+	if len(u) != len(r) {
+		t.Error(shouldBe(len(u), len(r)))
+		return
+	}
+
+	// are they equal
+	b := true
+	for i := 0; i < len(u); i++ {
+		if r[i] != u[i] {
+			b = false
+			break
+		}
+	}
+
+	if !b {
+		t.Error(shouldBe(r, u))
+	}
+}
+
+// write a function that splits a string into words
+func TestSplitString(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
+	t.Log("you should be able to split a string into words")
+	var s string
+	var r []string
+	var u []string
+	s = "Hello, World"
+	u = []string{"Hello", "World"}
+
+	r = splitString(s)
+
+	// check length equal
+	if len(r) != len(u) {
+		t.Error(shouldBe(len(r), len(u)))
+		return
+	}
+
+	// check words
+	for i := 0; i < len(u); i++ {
+		if u[i] != r[i] {
+			t.Error(shouldBe(u, r))
+		}
+	}
+}
+
+// write a function that converts a string to Title Case
+func TestTitleCase(t *testing.T) {
+	defer testPanic(t) // handle panics and syntax errors
+
+	t.Log("you should be able to convert a string to title case")
+	var s string
+	var r string
+	var u string
+	s = "this is the title"
+	u = "This Is The Title"
+
+	r = titleString(s)
+
+	// check length equal
+	if r != u {
+		t.Error(shouldBe(r,u))
+	}
+}
+
 
 // write a function that reduces repeated characters
 func TestReduceString(t *testing.T) {
@@ -43,7 +158,7 @@ func TestReduceString(t *testing.T) {
 	s = reduceString(s, 1)
 	if s != r {
 		t.Error(shouldBe(s, r))
-	}	
+	}
 }
 
 // write a function that wraps lines at a given number of columns without breaking works

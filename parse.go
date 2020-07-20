@@ -121,12 +121,27 @@ func parseTestLine(line string, ti *testResults) {
 		return
 	}
 
-	matched, err = regexp.MatchString(`^FAIL|^ok|^PASS`, line)
+	matched, err = regexp.MatchString(`^ok|^PASS`, line)
 	if err != nil {
 		panic(err)
 	}
 	if matched {
 		return
+	}
+
+	/* example output if tests did not compile properly
+	# command-line-arguments [command-line-arguments.test]
+	app/strings_test.go:4:2: imported and not used: "log"
+	FAIL    command-line-arguments [build failed]
+	FAIL
+	*/
+	matched, err = regexp.MatchString(`^app/.*\.go`, line)
+	if err != nil {
+		panic(err)
+	}
+	if matched {
+		ti.pass = false
+		ti.html = append(ti.html, fmt.Sprintf("<div class='fail'>compile failed : %s</div>", line))
 	}
 
 	return

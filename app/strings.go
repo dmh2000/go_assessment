@@ -1,5 +1,33 @@
 package goassessment
 
+import (
+	"strings"
+)
+
+// write a function that composes a string from arguments
+func composeString(a string, b string) string {
+	return a + ", " + b + "\n"
+}
+
+// write a function that returns a string from a byte array
+func fromBytes(b []byte) string {
+	return string(b)
+}
+
+// write a function that splits a string into words
+func splitString(s string) []string {
+	return strings.Split(s, ", ")
+}
+
+// write a function that converts a string to Title Case
+func titleString(s string) string {
+	return strings.Title(s)
+}
+
+func runesFromString(s string) []rune {
+	return []rune{9995, 32, 128077, 32, 128078, 32, 9994}
+}
+
 // write a function that reduces adjacent repeated characters
 func reduceString(s string, count int) string {
 

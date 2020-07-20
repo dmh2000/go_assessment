@@ -20,8 +20,6 @@ type Employee struct {
 	id int
 }
 
-type EmployeeSlice []Employee
-
 // Sort : implement Sort for PersonSlice
 func TestMethodsSort(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors

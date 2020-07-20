@@ -1,261 +1,152 @@
-Flow Control
 === RUN   TestFlowControl
 --- PASS: TestFlowControl (0.00s)
-    flowControl_test.go:15: you should be able to conditionally branch your code
+    flowControl_test.go:17: you should be able to conditionally branch your code
 PASS
 ok  	command-line-arguments	0.001s
-Slices
+=== RUN   TestLogicalOr
+--- PASS: TestLogicalOr (0.00s)
+    logicalOperators_test.go:9: you should be able to work with logical or
+=== RUN   TestLogicalAnd
+--- PASS: TestLogicalAnd (0.00s)
+    logicalOperators_test.go:37: you should be able to work with logical and
+=== RUN   TestLogicalNot
+--- PASS: TestLogicalNot (0.00s)
+    logicalOperators_test.go:65: you should be able to work with logical not
+PASS
+ok  	command-line-arguments	0.002s
+=== RUN   TestStringCompose
+--- PASS: TestStringCompose (0.00s)
+    strings_test.go:11: you should be able to compose a string from arguments
+=== RUN   TestStringFromBytes
+--- PASS: TestStringFromBytes (0.00s)
+    strings_test.go:26: you should be able to convert a byte array to a string
+=== RUN   TestRunes
+--- PASS: TestRunes (0.00s)
+    strings_test.go:44: you should be able to decompose a UTF-8 string into an array of runes
+=== RUN   TestSplitString
+--- PASS: TestSplitString (0.00s)
+    strings_test.go:77: you should be able to split a string into words
+=== RUN   TestTitleCase
+--- PASS: TestTitleCase (0.00s)
+    strings_test.go:104: you should be able to convert a string to title case
+=== RUN   TestReduceString
+--- PASS: TestReduceString (0.00s)
+    strings_test.go:124: you should be able to reduce adjacent repeated characters to a desired minimum
+=== RUN   TestWordWrap
+--- PASS: TestWordWrap (0.00s)
+    strings_test.go:168: you should be able to wrap lines at a given number of columns, without breaking words
+=== RUN   TestReverseString
+--- PASS: TestReverseString (0.00s)
+    strings_test.go:203: you should be able to reverse the characters in a string
+PASS
+ok  	command-line-arguments	0.002s
 === RUN   TestIndexOf
 --- PASS: TestIndexOf (0.00s)
-    slices_test.go:10: you should be able to determine the location of an item in a slice
+    slices_test.go:12: you should be able to determine the location of an item in a slice
 === RUN   TestSum
 --- PASS: TestSum (0.00s)
-    slices_test.go:27: you should be able to sum the items of a slice
+    slices_test.go:30: you should be able to sum the items of a slice
 === RUN   TestRemove
 --- PASS: TestRemove (0.00s)
-    slices_test.go:39: you should be able to remove all instances of a value from a slice
+    slices_test.go:44: you should be able to remove all instances of a value from a slice
 === RUN   TestFront
 --- PASS: TestFront (0.00s)
-    slices_test.go:55: you should be able to get the value of the first element of a slice
+    slices_test.go:61: you should be able to get the value of the first element of a slice
 === RUN   TestBack
 --- PASS: TestBack (0.00s)
-    slices_test.go:68: you should be able to get the value of the last element of a slice
+    slices_test.go:75: you should be able to get the value of the last element of a slice
 === RUN   TestPushBack
 --- PASS: TestPushBack (0.00s)
-    slices_test.go:81: you should be able to add an item to the end of a slice
+    slices_test.go:89: you should be able to add an item to the end of a slice
 === RUN   TestPopBack
 --- PASS: TestPopBack (0.00s)
-    slices_test.go:97: you should be able to remove the last item of a slice
+    slices_test.go:106: you should be able to remove the last item of a slice
 === RUN   TestPushFront
 --- PASS: TestPushFront (0.00s)
-    slices_test.go:113: you should be able to add an item to the front of a slice
+    slices_test.go:123: you should be able to add an item to the front of a slice
 === RUN   TestPopFront
 --- PASS: TestPopFront (0.00s)
-    slices_test.go:130: you should be able to remove the first item of a slice
+    slices_test.go:141: you should be able to remove the first item of a slice
 === RUN   TestConcat
 --- PASS: TestConcat (0.00s)
-    slices_test.go:146: you should be able to join together two slices
+    slices_test.go:158: you should be able to join together two slices
 === RUN   TestInsert
---- FAIL: TestInsert (0.00s)
-    slices_test.go:163: you should be able to add an item anywhere in a slice
-    slices_test.go:171: 4 should be 5
-        
-    slices_test.go:174: [1 2 3 4] should be [1 2 5 3 4]
-        
+--- PASS: TestInsert (0.00s)
+    slices_test.go:177: you should be able to add an item anywhere in a slice
 === RUN   TestCount
---- FAIL: TestCount (0.00s)
-    slices_test.go:181: you should be able to count the occurences of an item in a slice
-    slices_test.go:188: 0 should be 3
-        
+--- PASS: TestCount (0.00s)
+    slices_test.go:228: you should be able to count the occurences of an item in a slice
 === RUN   TestDuplicates
---- FAIL: TestDuplicates (0.00s)
-    slices_test.go:194: you should be able to find duplicates in a slice
-    slices_test.go:203: 9 should be 3
-        
-    slices_test.go:206: [1 1 2 3 3 3 4 4 5] should be [1 3 4]
-        
+--- PASS: TestDuplicates (0.00s)
+    slices_test.go:242: you should be able to find duplicates in a slice
 === RUN   TestSquare
---- FAIL: TestSquare (0.00s)
-    slices_test.go:212: you should be able to square each number in a slice
-    slices_test.go:219: [1 2 3 4] should be [1 4 9 16]
-        
+--- PASS: TestSquare (0.00s)
+    slices_test.go:261: you should be able to square each number in a slice
 === RUN   TestFindAllOccurrences
---- FAIL: TestFindAllOccurrences (0.00s)
-    slices_test.go:225: you should be able to find all occurrences of an item in an array and return their indices
-    slices_test.go:232: [1 2 3 4 5 6 1 7] should be [0 6]
-        
-FAIL
-FAIL	command-line-arguments	0.002s
-FAIL
-Binary
+--- PASS: TestFindAllOccurrences (0.00s)
+    slices_test.go:275: you should be able to find all occurrences of an item in an array and return their indices
+PASS
+ok  	command-line-arguments	0.002s
 === RUN   TestValueAtBit
---- FAIL: TestValueAtBit (0.00s)
-    binary_test.go:9: you should be able to find the value of a given bit
-    binary_test.go:14: 0 should be 1
-        
-    binary_test.go:19: 0 should be 1
-        
-    binary_test.go:24: 0 should be 1
-        
+--- PASS: TestValueAtBit (0.00s)
+    binary_test.go:11: you should be able to find the value of a given bit
 === RUN   TestBase10
---- FAIL: TestBase10 (0.00s)
-    binary_test.go:36: you should be able to return the base10 representation of a binary string
-    binary_test.go:41: 0 should be 192
-        
+--- PASS: TestBase10 (0.00s)
+    binary_test.go:46: you should be able to return the base10 representation of a binary string
 === RUN   TestConvertoBinary
---- FAIL: TestConvertoBinary (0.00s)
-    binary_test.go:47: you should be able to convert an eight-bit number to a binary string
-    binary_test.go:52:  should be 10000000
-        
-    binary_test.go:57:  should be 01000001
-        
+--- PASS: TestConvertoBinary (0.00s)
+    binary_test.go:59: you should be able to convert an eight-bit number to a binary string
 === RUN   TestBitwiseOr
---- FAIL: TestBitwiseOr (0.00s)
-    binary_test.go:69: 0 should be 770047
-        
+--- PASS: TestBitwiseOr (0.00s)
+    binary_test.go:77: you should be able to use the bitwise OR operator
 === RUN   TestBitwiseAnd
---- FAIL: TestBitwiseAnd (0.00s)
-    binary_test.go:81: 0 should be 8192
-        
+--- PASS: TestBitwiseAnd (0.00s)
+    binary_test.go:92: you should be able to use the bitwise AND operator
 === RUN   TestBitwiseXor
---- FAIL: TestBitwiseXor (0.00s)
-    binary_test.go:94: 0 should be 568488
-        
-FAIL
-FAIL	command-line-arguments	0.001s
-FAIL
-Logical Operators
-=== RUN   TestLogicalOr
---- FAIL: TestLogicalOr (0.00s)
-    logicalOperators_test.go:7: you should be able to work with logical or
-    logicalOperators_test.go:27: true should be false
-        
-=== RUN   TestLogicalAnd
---- FAIL: TestLogicalAnd (0.00s)
-    logicalOperators_test.go:33: you should be able to work with logical and
-    logicalOperators_test.go:38: true should be false
-        
-    logicalOperators_test.go:43: true should be false
-        
-    logicalOperators_test.go:53: true should be false
-        
-=== RUN   TestLogicalNot
---- FAIL: TestLogicalNot (0.00s)
-    logicalOperators_test.go:59: you should be able to work with logical not
-    logicalOperators_test.go:69: true should be false
-        
-    logicalOperators_test.go:74: true should be false
-        
-    logicalOperators_test.go:79: true should be true
-        
-FAIL
-FAIL	command-line-arguments	0.002s
-FAIL
-Strings
-=== RUN   TestReduceString
---- FAIL: TestReduceString (0.00s)
-    strings_test.go:7: you should be able to reduce duplicate characters to a desired minimum
-    strings_test.go:16:  should be aabb
-        
-    strings_test.go:23:  should be xaabb
-        
-    strings_test.go:30:  should be ab
-        
-    strings_test.go:37:  should be aaxxaabb
-        
-=== RUN   TestWordWrap
---- FAIL: TestWordWrap (0.00s)
-    strings_test.go:44: you should be able to wrap lines at a given number of columns, without breaking words
-    strings_test.go:56:  should be abcdef_abcde_abc_def
-        
-    strings_test.go:63:  should be abc_abc_abc
-        
-    strings_test.go:70:  should be a b c_def
-        
-=== RUN   TestReverseString
---- FAIL: TestReverseString (0.00s)
-    strings_test.go:84:  should be cba
-        
-    strings_test.go:91:  should be sretcarahc fo gnirts a ma i
-        
-    strings_test.go:98:  should be amanaP :lanac a ,nalp a ,nam A
-        
-FAIL
-FAIL	command-line-arguments	0.002s
-FAIL
-Functions
+--- PASS: TestBitwiseXor (0.00s)
+    binary_test.go:108: you should be able to use the bitwise XOR operator
+PASS
+ok  	command-line-arguments	0.001s
 === RUN   TestFunction
---- FAIL: TestFunction (0.00s)
-    functions_test.go:11: you should be able to return a function from a function
-    functions_test.go:31:  should be Hello, world
-        
-    functions_test.go:43:  should be Hai, can i haz funxtion?
-        
+--- PASS: TestFunction (0.00s)
+    functions_test.go:13: you should be able to return a function from a function
 === RUN   TestClosures
---- FAIL: TestClosures (0.00s)
-    functions_test.go:49: you should be able to use closures
-    functions_test.go:56: 0 should be 3
-        
+--- PASS: TestClosures (0.00s)
+    functions_test.go:53: you should be able to use closures
 === RUN   TestPartial
---- FAIL: TestPartial (0.00s)
-    functions_test.go:70: you should be able to create a 'partial' function
-    functions_test.go:79: fPartial returned nil
+--- PASS: TestPartial (0.00s)
+    functions_test.go:76: you should be able to create a 'partial' function
 === RUN   TestMap
---- FAIL: TestMap (0.00s)
-    functions_test.go:103: you should be able to implement a function MAP function
-    functions_test.go:117: 0 should be 1
-        
-    functions_test.go:117: 0 should be 4
-        
-    functions_test.go:117: 0 should be 9
-        
-    functions_test.go:117: 0 should be 16
-        
-    functions_test.go:117: 0 should be 25
-        
+--- PASS: TestMap (0.00s)
+    functions_test.go:111: you should be able to implement a MAP function
 === RUN   TestReduce
---- FAIL: TestReduce (0.00s)
-    functions_test.go:124: you should be able to implement a function REDUCE function
-    functions_test.go:135: 0 should be 15
-        
+--- PASS: TestReduce (0.00s)
+    functions_test.go:134: you should be able to implement a REDUCE function
 === RUN   TestFilter
---- FAIL: TestFilter (0.00s)
-    functions_test.go:155: 0 should be 1
-        
-    functions_test.go:155: 0 should be 3
-        
-    functions_test.go:155: 0 should be 5
-        
+--- PASS: TestFilter (0.00s)
+    functions_test.go:153: you should be able to implement a FILTER function
 === RUN   TestVariadic
---- FAIL: TestVariadic (0.00s)
-    functions_test.go:168:  should be 1,2,3,4,5
-        
-FAIL
-FAIL	command-line-arguments	0.002s
-FAIL
-Recursion
+--- PASS: TestVariadic (0.00s)
+    functions_test.go:177: you should be able to implement a variadic function
+PASS
+ok  	command-line-arguments	0.002s
 === RUN   TestListFiles
---- FAIL: TestListFiles (0.00s)
-    recursion_test.go:38: you should be able to return a list of files from the data
-    recursion_test.go:44: 0 should be 8
-        
-    recursion_test.go:49: -1 should be >= 0
-    recursion_test.go:54: -1 should be >= 0
-    recursion_test.go:59: -1 should be -1
-        
+--- PASS: TestListFiles (0.00s)
+    recursion_test.go:40: you should be able to return a list of files starting at the top level direcotry
 === RUN   TestListDir
---- FAIL: TestListDir (0.00s)
-    recursion_test.go:65: you should be able to return a list of files in a subdir
-    recursion_test.go:71: 0 should be 5
-        
-    recursion_test.go:76: -1 should be >= 0
-    recursion_test.go:81: -1 should be >= 0
+--- PASS: TestListDir (0.00s)
+    recursion_test.go:69: you should be able to return a list of files starting at the named subdirectory
 === RUN   TestPermute
---- FAIL: TestPermute (0.00s)
-    recursion_test.go:118: you should be able to return the permutations of an array
-    recursion_test.go:125: 0 should be 24
-        
+--- PASS: TestPermute (0.00s)
+    recursion_test.go:122: you should be able to return the permutations of an array
 === RUN   TestFibonacci
---- FAIL: TestFibonacci (0.00s)
-    recursion_test.go:139: you should be able to return the nth number in a fibonacci sequence
-    recursion_test.go:144: 0 should be 1
-        
-    recursion_test.go:148: 0 should be 8
-        
+--- PASS: TestFibonacci (0.00s)
+    recursion_test.go:145: you should be able to return the nth number in a fibonacci sequence
 === RUN   TestValidParens
---- FAIL: TestValidParens (0.00s)
-    recursion_test.go:154: you should be able to return the set of all valid combinations of n pairs of parentheses.
-    recursion_test.go:163: 0 should be 5
-        
-    recursion_test.go:169: [] should contain ((()))
-    recursion_test.go:169: [] should contain (()())
-    recursion_test.go:169: [] should contain (())()
-    recursion_test.go:169: [] should contain ()(())
-    recursion_test.go:169: [] should contain ()()()
-FAIL
-FAIL	command-line-arguments	0.002s
-FAIL
-Methods
+--- PASS: TestValidParens (0.00s)
+    recursion_test.go:162: you should be able to return the set of all valid combinations of n pairs of parentheses.
+PASS
+ok  	command-line-arguments	0.002s
 === RUN   TestMethodsSort
 --- FAIL: TestMethodsSort (0.00s)
     methods_test.go:27: you should be able to implement the Sort interface for a specified type
@@ -269,43 +160,124 @@ Methods
         
 === RUN   TestMethodsHeap
 --- FAIL: TestMethodsHeap (0.00s)
-    methods_test.go:53: you should be able to implement the Heap interface for a specified type
-    methods_test.go:80: heap should not be empty
+    methods_test.go:55: you should be able to implement the Heap interface for a specified type
+    methods_test.go:82: heap should not be empty
 === RUN   TestMethodsList
 --- FAIL: TestMethodsList (0.00s)
-    methods_test.go:96: you should be able to create and populate a list
-    methods_test.go:107: should return a list
+    methods_test.go:100: you should be able to create and populate a list
+    methods_test.go:111: should return a list
 === RUN   TestMethodsNotify
 --- FAIL: TestMethodsNotify (0.00s)
-    methods_test.go:139: you should be able to use an interface with different types
-    methods_test.go:151:  should be new mail for 12345:September
+    methods_test.go:145: you should be able to use an interface with different types
+    methods_test.go:157:  should be new mail for 12345:September
         
-    methods_test.go:159:  should be new mail for October
+    methods_test.go:165:  should be new mail for October
         
 === RUN   TestIntFromInterface
 --- FAIL: TestIntFromInterface (0.00s)
-    methods_test.go:165: you shoud be able to extract a value from an interface
-    methods_test.go:174: 0 should be 5
+    methods_test.go:173: you shoud be able to extract a value from an interface
+    methods_test.go:182: 0 should be 5
         
 FAIL
 FAIL	command-line-arguments	0.002s
 FAIL
-Regex
 === RUN   TestContainsNumber
 --- FAIL: TestContainsNumber (0.00s)
-    regex_test.go:7: you should be able to detect a number in a string
-    regex_test.go:12: false should be true
+    regex_test.go:9: you should be able to detect a number in a string
+    regex_test.go:14: false should be true
         
 === RUN   TestRepeatingLetter
 --- FAIL: TestRepeatingLetter (0.00s)
-    regex_test.go:23: you should be able to detect a repeating letter in a string
-    regex_test.go:28: false should be true
+    regex_test.go:25: you should be able to detect a repeating letter in a string
+    regex_test.go:30: false should be true
         
-    regex_test.go:33: false should be true
+    regex_test.go:35: false should be true
         
-    regex_test.go:38: false should be true
+    regex_test.go:40: false should be true
         
 === RUN   TestEndsWithVowel
+--- FAIL: TestEndsWithVowel (0.00s)
+    regex_test.go:58: you should be able to determine whether a string ends with a vowel (aeiou)
+    regex_test.go:68: false should be true
+        
+    regex_test.go:73: false should be true
+        
+=== RUN   TestCaptureThreeNumbers
+--- FAIL: TestCaptureThreeNumbers (0.00s)
+    regex_test.go:81: you should be able to capture the first series of three numbers
+    regex_test.go:89:  should be 123
+        
+    regex_test.go:96:  should be 987
+        
+=== RUN   TestMatchesPattern
+--- FAIL: TestMatchesPattern (0.00s)
+    regex_test.go:118: you should be able to determine whether a string matches a pattern
+    regex_test.go:124: false should be true
+        
+    regex_test.go:129: false should be true
+        
+=== RUN   TestIsUSD
+--- FAIL: TestIsUSD (0.00s)
+    regex_test.go:167: you should be able to detect correctly-formatted monetary amounts in USD
+    regex_test.go:173: false should be true
+        
+    regex_test.go:178: false should be true
+        
+    regex_test.go:183: false should be true
+        
+    regex_test.go:188: false should be true
+        
+    regex_test.go:193: false should be true
+        
+    regex_test.go:198: false should be true
+        
+    regex_test.go:203: false should be true
+        
+FAIL
+FAIL	command-line-arguments	0.002s
+FAIL
+=== RUN   TestAsync
+--- FAIL: TestAsync (0.00s)
+    async_test.go:20: you should be able to send values to a channel with a delay
+    async_test.go:43: select statement timed out
+FAIL
+FAIL	command-line-arguments	0.002s
+FAIL
+t.go:198: false should be true
+        
+    regex_test.go:203: false should be true
+        
+FAIL
+FAIL	command-line-arguments	0.002s
+FAIL
+=== RUN   TestAsync
+--- FAIL: TestAsync (0.00s)
+    async_test.go:20: you should be able to send values to a channel with a delay
+    async_test.go:43: select statement timed out
+FAIL
+FAIL	command-line-arguments	0.002s
+FAIL
+IL
+FAIL	command-line-arguments	0.002s
+FAIL
+02s
+FAIL
+s
+FAIL
+
+=== RUN   TestAsync
+--- FAIL: TestAsync (0.00s)
+    async_test.go:20: you should be able to send values to a channel with a delay
+    async_test.go:43: select statement timed out
+FAIL
+FAIL	command-line-arguments	0.002s
+FAIL
+ delay
+    async_test.go:43: select statement timed out
+FAIL
+FAIL	command-line-arguments	0.002s
+FAIL
+stEndsWithVowel
 --- FAIL: TestEndsWithVowel (0.00s)
     regex_test.go:54: you should be able to determine whether a string ends with a vowel (aeiou)
     regex_test.go:64: false should be true
