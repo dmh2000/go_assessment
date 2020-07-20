@@ -4,12 +4,13 @@ import (
 	"testing"
 )
 
+// defined in app_types.go
 // Dir recursive definition of a file structure
-type Dir struct {
-	name  string
-	files []string
-	dirs  []Dir
-}
+// type Dir struct {
+// 	name  string
+// 	files []string
+// 	dirs  []Dir
+// }
 
 var fileData = Dir{
 	name:  "app",

@@ -8,17 +8,18 @@ import (
 	"testing"
 )
 
-type Person struct {
-	age  int
-	name string
-}
+// defined in app_types.go
+// type Person struct {
+// 	age  int
+// 	name string
+// }
 
-type PersonSlice []Person
+// type PersonSlice []Person
 
-type Employee struct {
-	p  Person
-	id int
-}
+// type Employee struct {
+// 	p  Person
+// 	id int
+// }
 
 // Sort : implement Sort for PersonSlice
 func TestMethodsSort(t *testing.T) {
@@ -126,10 +127,11 @@ func TestMethodsList(t *testing.T) {
 	}
 }
 
+// defined in app_types.go
 // Notifier interface
-type Notifier interface {
-	notify() string
-}
+// type Notifier interface {
+// 	notify() string
+// }
 
 func (p Person) notify() string {
 	return fmt.Sprintf("new mail for %s", p.name)

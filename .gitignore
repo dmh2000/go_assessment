@@ -14,7 +14,11 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# miscellaneous files to ignore
 js-assessment
 static/bootstrap-4.5.0-dist 
 solutions
 __debug_bin
+goassessment
+results.txt

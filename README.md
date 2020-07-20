@@ -12,10 +12,12 @@ had not written any JavaScript for a few months. A similar tool for Go might be 
 for the same reason. The tool will be useful for go beginners to move beyond a tutorial and
 implement some simple (and a few not-so-simple) Go code without being spoon fed.
 
-This tool is not meant to be a leetcode challenge. The point is to learn or refresh you skill with Go.
+This tool is not meant to be a leetcode challenge. The point is to exercise your skill with Go.
 Most of the tests and implementations are straightforward. A few are harder, require a bit of
 algorithm knowledge or the ability to look up a solution. If you have gone through the
-official golang tutorial you will know enough to make most of the tests pass.
+official golang tutorial you will know enough to make most of the tests pass. For the rest
+go ahead and look up a solution if you need to. Feel free to use go standard libraries. 
+No need to reinvent the wheel. 
 
 The way this tool works is that it relies on Test Driven Development using the [native Go test
 framework](https://golang.org/pkg/testing/). The ./app directory
@@ -26,6 +28,7 @@ skeleton files to pass the tests. If the tests are not passing, dig into the xxx
 to figure out what the requirement is, then fix the skeleton file so the tests pass.
 You are done when all tests pass. You should not have to modify anything in the test files,
 only the skeleton files (unless the tests have a bug in which case feel free to report it).
+
 
 Here's how to work this:
 
@@ -43,8 +46,8 @@ To run the tests and see ther result you have some choices.
    - you can run individual test files using 'go test...'
      - example for the strings test 
      - \[linux/macos\]: 'go test -v ./app/strings\*.go ./app/test_util.go'
-     - \[windows\]: 'go test -v ./app/strings.go ./app/strings_test.go ./app/test_util.go'
-   - run a shell script that runs all the tests
+     - \[windows\]: 'go test -v ./app/strings.go ./app/strings_test.go ./app/test_util.go ./app/app_types.go'
+   - run a shell script that runs all the tests and writes the output to 'results.txt'
      - for Linux or Mac, the script is 'test_all.sh'
      - for Windows, the script is 'test_all.cmd'
        - if your tests and other go programs build slowly on Windows, its probably due to Windows Defender or other antivirus
