@@ -16,8 +16,9 @@ import (
  */
 func TestAsync(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to send values to a channel with a delay")
+	t.Log("GOAL: you should be able to send values to a channel with a delay")
 
 	var c chan int
 	var q chan int

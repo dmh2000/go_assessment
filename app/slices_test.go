@@ -8,8 +8,9 @@ import (
 // write a function that retursns the index of an item in a slice
 func TestIndexOf(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to determine the location of an item in a slice")
+	t.Log("GOAL: you should be able to determine the location of an item in a slice")
 
 	a := []int{1, 2, 3, 4}
 
@@ -27,7 +28,9 @@ func TestIndexOf(t *testing.T) {
 // write a function that sums the values in a slice
 func TestSum(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
-	t.Log("you should be able to sum the items of a slice")
+	setTestInstance(t) // update test instance for logging
+
+	t.Log("GOAL: you should be able to sum the items of a slice")
 
 	a := []int{1, 2, 3, 4}
 
@@ -41,7 +44,9 @@ func TestSum(t *testing.T) {
 // write a function that removes all instances of a value from a slice
 func TestRemove(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
-	t.Log("you should be able to remove all instances of a value from a slice")
+	setTestInstance(t) // update test instance for logging
+
+	t.Log("GOAL: you should be able to remove all instances of a value from a slice")
 
 	a := []int{1, 2, 3, 4, 2, 2}
 	b := []int{1, 3, 4}
@@ -58,7 +63,9 @@ func TestRemove(t *testing.T) {
 // write a function that returns the value of the first element in a slice (wihtout removing it)
 func TestFront(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
-	t.Log("you should be able to get the value of the first element of a slice")
+	setTestInstance(t) // update test instance for logging
+
+	t.Log("GOAL: you should be able to get the value of the first element of a slice")
 
 	a := []int{1, 2, 3, 4}
 
@@ -72,7 +79,9 @@ func TestFront(t *testing.T) {
 // write a function that returns the value of the last element in a slice (wihtout removing it)
 func TestBack(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
-	t.Log("you should be able to get the value of the last element of a slice")
+	setTestInstance(t) // update test instance for logging
+
+	t.Log("GOAL: you should be able to get the value of the last element of a slice")
 
 	a := []int{1, 2, 3, 4}
 
@@ -86,7 +95,9 @@ func TestBack(t *testing.T) {
 // write a function that adds an item to the end of a slice
 func TestPushBack(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
-	t.Log("you should be able to add an item to the end of a slice")
+	setTestInstance(t) // update test instance for logging
+
+	t.Log("GOAL: you should be able to add an item to the end of a slice")
 
 	a := []int{1, 2, 3, 4}
 	b := []int{1, 2, 3, 4, 2}
@@ -103,7 +114,9 @@ func TestPushBack(t *testing.T) {
 // write a function that removes an item to the end of a slice
 func TestPopBack(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
-	t.Log("you should be able to remove the last item of a slice")
+	setTestInstance(t) // update test instance for logging
+
+	t.Log("GOAL: you should be able to remove the last item of a slice")
 
 	a := []int{1, 2, 3, 4}
 	b := []int{1, 2, 3}
@@ -120,7 +133,9 @@ func TestPopBack(t *testing.T) {
 // write a function that adds an item to the front of a slice
 func TestPushFront(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
-	t.Log("you should be able to add an item to the front of a slice")
+	setTestInstance(t) // update test instance for logging
+
+	t.Log("GOAL: you should be able to add an item to the front of a slice")
 
 	a := []int{1, 2, 3, 4}
 	b := []int{2, 1, 2, 3, 4}
@@ -138,7 +153,9 @@ func TestPushFront(t *testing.T) {
 // write a function that removes an item from the front of a slice
 func TestPopFront(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
-	t.Log("you should be able to remove the first item of a slice")
+	setTestInstance(t) // update test instance for logging
+
+	t.Log("GOAL: you should be able to remove the first item of a slice")
 
 	a := []int{1, 2, 3, 4}
 	b := []int{2, 3, 4}
@@ -155,7 +172,9 @@ func TestPopFront(t *testing.T) {
 // write a function that concatenates two slices
 func TestConcat(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
-	t.Log("you should be able to join together two slices")
+	setTestInstance(t) // update test instance for logging
+
+	t.Log("GOAL: you should be able to join together two slices")
 	a := []int{1, 2, 3, 4}
 	b := []int{5, 6, 7, 8}
 	c := []int{1, 2, 3, 4, 5, 6, 7, 8}
@@ -173,8 +192,9 @@ func TestConcat(t *testing.T) {
 // write a function that adds an item to a slice at the specified index
 func TestInsert(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to add an item anywhere in a slice")
+	t.Log("GOAL: you should be able to add an item anywhere in a slice")
 
 	a := []int{1, 2, 3, 4}
 
@@ -225,7 +245,9 @@ func TestInsert(t *testing.T) {
 // write a function that returns a count of matching items in a slice
 func TestCount(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
-	t.Log("you should be able to count the occurences of an item in a slice")
+	setTestInstance(t) // update test instance for logging
+
+	t.Log("GOAL: you should be able to count the occurences of an item in a slice")
 
 	a := []int{1, 4, 2, 3, 4, 4}
 
@@ -239,7 +261,9 @@ func TestCount(t *testing.T) {
 // write a function that finds duplicates in a slice
 func TestDuplicates(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
-	t.Log("you should be able to find duplicates in a slice")
+	setTestInstance(t) // update test instance for logging
+
+	t.Log("GOAL: you should be able to find duplicates in a slice")
 
 	a := []int{1, 2, 4, 4, 3, 3, 1, 5, 3}
 
@@ -258,7 +282,9 @@ func TestDuplicates(t *testing.T) {
 // write a function that sqaures all items in a slice
 func TestSquare(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
-	t.Log("you should be able to square each number in a slice")
+	setTestInstance(t) // update test instance for logging
+
+	t.Log("GOAL: you should be able to square each number in a slice")
 
 	a := []int{1, 2, 3, 4}
 	b := []int{1, 4, 9, 16}
@@ -272,7 +298,9 @@ func TestSquare(t *testing.T) {
 // write a function that returns all the indices in a slice that matches an item
 func TestFindAllOccurrences(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
-	t.Log("you should be able to find all occurrences of an item in an array and return their indices")
+	setTestInstance(t) // update test instance for logging
+
+	t.Log("GOAL: you should be able to find all occurrences of an item in an array and return their indices")
 
 	a := []int{1, 2, 3, 4, 5, 6, 1, 7}
 	b := []int{0, 6}

@@ -32,8 +32,8 @@ echo "Methods"
 echo "Methods" >>results.txt
 go test -v ./app/method*.go  ./app/test_util.go ./app/app_types.go &>>results.txt
 
-echo "Regex"
-echo "Regex" >>results.txt
+echo "Regexp"
+echo "Regexp" >>results.txt
 go test -v ./app/regex*.go  ./app/test_util.go ./app/app_types.go &>>results.txt
 
 echo Async

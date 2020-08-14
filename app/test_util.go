@@ -2,6 +2,7 @@ package goassessment
 
 import (
 	"fmt"
+	"path"
 	"runtime"
 	"testing"
 )
@@ -64,5 +65,23 @@ func testPanic(t *testing.T) {
 		} else {
 			t.Errorf("panic in solution %v", r)
 		}
+	}
+}
+
+// a bit of kludgery to make testing.T.Log available to the
+// app skeletons for debugging. this is to avoid having to
+// pass the testing.T instance to each app function under test
+var testUtilT *testing.T
+
+// save the test instance
+func setTestInstance(t *testing.T) {
+	testUtilT = t
+}
+
+// print a string to the test log
+func testLog(s string) {
+	_, file, line, ok := runtime.Caller(1)
+	if testUtilT != nil && ok {
+		testUtilT.Logf("%v:%v:%v", path.Base(file), line, s)
 	}
 }

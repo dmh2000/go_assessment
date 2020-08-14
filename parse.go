@@ -103,6 +103,15 @@ func parseTestLine(line string, ti *testResults) {
 		return
 	}
 
+	matched, err = regexp.MatchString(`.*GOAL*`, line)
+	if err != nil {
+		panic(err)
+	}
+	if matched {
+		ti.html = append(ti.html, fmt.Sprintf("<div class='spec'>%s</div>", line))
+		return
+	}
+
 	matched, err = regexp.MatchString(`    .+_test`, line)
 	if err != nil {
 		panic(err)

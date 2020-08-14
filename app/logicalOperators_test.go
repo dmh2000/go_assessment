@@ -5,8 +5,9 @@ import "testing"
 // write a function that returns true if either argument is true
 func TestLogicalOr(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to work with logical or")
+	t.Log("GOAL: you should be able to work with logical or")
 	var b bool
 
 	b = either(false, true)
@@ -33,8 +34,9 @@ func TestLogicalOr(t *testing.T) {
 // write a function that returns true only if both arguments are true
 func TestLogicalAnd(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to work with logical and")
+	t.Log("GOAL: you should be able to work with logical and")
 	var b bool
 
 	b = both(false, true)
@@ -61,8 +63,9 @@ func TestLogicalAnd(t *testing.T) {
 // write a function that returns true only if both arguments are false
 func TestLogicalNot(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to work with logical not")
+	t.Log("GOAL: you should be able to work with logical not")
 	var b bool
 
 	b = none(false, true)

@@ -5,8 +5,9 @@ import "testing"
 // write a function that checks if the string contains a decimal number
 func TestContainsNumber(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to detect a number in a string")
+	t.Log("GOAL: you should be able to detect a number in a string")
 	var b bool
 
 	b = containsNumber("abc123")
@@ -20,42 +21,12 @@ func TestContainsNumber(t *testing.T) {
 	}
 }
 
-// write a function that checks if the string contains repeated letters
-func TestRepeatingLetter(t *testing.T) {
-	t.Log("you should be able to detect a repeating letter in a string")
-	var b bool
-
-	b = containsRepeatingLetter("bookkeeping")
-	if !b {
-		t.Error(shouldBe(b, true))
-	}
-
-	b = containsRepeatingLetter("rattler")
-	if !b {
-		t.Error(shouldBe(b, true))
-	}
-
-	b = containsRepeatingLetter("ZEPPELIN")
-	if !b {
-		t.Error(shouldBe(b, true))
-	}
-
-	b = containsRepeatingLetter("cats")
-	if b {
-		t.Error(shouldBe(b, false))
-	}
-
-	b = containsRepeatingLetter("l33t")
-	if b {
-		t.Error(shouldBe(b, false))
-	}
-}
-
 // write a function that checks if the string ends with a vowel
 func TestEndsWithVowel(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to determine whether a string ends with a vowel (aeiou)")
+	t.Log("GOAL: you should be able to determine whether a string ends with a vowel (aeiou)")
 	var b bool
 
 	b = endsWithVowel("cats")
@@ -77,8 +48,9 @@ func TestEndsWithVowel(t *testing.T) {
 // write a function that captures and returns the first string of 3 decimal digits
 func TestCaptureThreeNumbers(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to capture the first series of three numbers")
+	t.Log("GOAL: you should be able to capture the first series of three numbers")
 	var s string
 	var r string
 
@@ -114,8 +86,9 @@ func TestCaptureThreeNumbers(t *testing.T) {
 // write a function that checks if the string matches a specified pattern
 func TestMatchesPattern(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to determine whether a string matches a pattern")
+	t.Log("GOAL: you should be able to determine whether a string matches a pattern")
 	// the pattern is XXX-XXX-XXXX where all X"s are digits
 	var b bool
 
@@ -163,10 +136,31 @@ func TestMatchesPattern(t *testing.T) {
 // write a function that checks if the string is a correctly-formatted monetary amounts in USD
 func TestIsUSD(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to detect correctly-formatted monetary amounts in USD")
+	t.Log("GOAL: you should be able to detect correctly-formatted monetary amounts in USD")
 	var b bool
 	// TRUE
+
+	b = isUSD("$1")
+	if !b {
+		t.Error(shouldBe(b, true))
+	}
+
+	b = isUSD("$12")
+	if !b {
+		t.Error(shouldBe(b, true))
+	}
+
+	b = isUSD("$123")
+	if !b {
+		t.Error(shouldBe(b, true))
+	}
+
+	b = isUSD("$1234")
+	if b {
+		t.Error(shouldBe(b, false))
+	}
 
 	b = isUSD("$132.03")
 	if !b {

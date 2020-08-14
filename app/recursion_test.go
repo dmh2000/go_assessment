@@ -37,8 +37,9 @@ var fileData = Dir{
 // write a function that returns a list of files starting at the top level directory
 func TestListFiles(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to return a list of files starting at the top level direcotry")
+	t.Log("GOAL: you should be able to return a list of files starting at the top level direcotry")
 	var index int
 
 	// passing in empty string "" means list all files from the top level
@@ -66,8 +67,9 @@ func TestListFiles(t *testing.T) {
 // wrote a function that returns a list of all files starting at the named subdirectory
 func TestListDir(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to return a list of files starting at the named subdirectory")
+	t.Log("GOAL: you should be able to return a list of files starting at the named subdirectory")
 	var index int
 
 	var result = listFiles(fileData, "js")
@@ -119,8 +121,9 @@ var permutations = [][]int{
 // Note : order of return values is arbitrary
 func TestPermute(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to return the permutations of an array")
+	t.Log("GOAL: you should be able to return the permutations of an array")
 	var result [][]int
 
 	result = permute(permData)
@@ -142,8 +145,9 @@ func TestPermute(t *testing.T) {
 // write a function that returns the fibonnaci number of n
 func TestFibonacci(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to return the nth number in a fibonacci sequence")
+	t.Log("GOAL: you should be able to return the nth number in a fibonacci sequence")
 	var fib int
 
 	fib = fibonacci(2)
@@ -159,8 +163,9 @@ func TestFibonacci(t *testing.T) {
 // write a function that returns an array of strings with all valid sets of n parens
 func TestValidParens(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to return the set of all valid combinations of n pairs of parentheses.")
+	t.Log("GOAL: you should be able to return the set of all valid combinations of n pairs of parentheses.")
 
 	var s []string
 	var r []string

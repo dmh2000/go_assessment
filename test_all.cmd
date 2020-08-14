@@ -14,7 +14,7 @@ go test -v ./app/functions.go ./app/functions_test.go ./app/test_util.go ./app/a
 go test -v ./app/recursion.go ./app/recursion_test.go./app/test_util.go ./app/app_types.go  1>> results.txt 2>>&1
 @echo "Methods" ./app/app_types.go  1>> results.txt 2>&1
 go test -v ./app/methods_test.go ./app/methods_test.go  ./app/test_util.go ./app/app_types.go  1>> results.txt 2>>&1
-@echo "Regex" ./app/app_types.go  1>> results.txt 2>&1
+@echo "Regexp" ./app/app_types.go  1>> results.txt 2>&1
 go test -v ./app/regex_test.go  ./app/regex_test.go ./app/test_util.go ./app/app_types.go  1>> results.txt 2>>&1
 @echo "Async" ./app/app_types.go  1>> results.txt 2>&1
 go test -v ./app/async.go ./app/async_test.go ./app/test_util.go ./app/app_types.go  1>> results.txt 2>>&1

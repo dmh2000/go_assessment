@@ -7,8 +7,9 @@ import (
 // write a function that composes a string from arguments
 func TestStringCompose(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to compose a string from arguments")
+	t.Log("GOAL: you should be able to compose a string from arguments")
 	var s string
 	var r string
 	s = composeString("Hello", "World")
@@ -22,8 +23,9 @@ func TestStringCompose(t *testing.T) {
 // write a function that returns a string from a byte array
 func TestStringFromBytes(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to convert a byte array to a string")
+	t.Log("GOAL: you should be able to convert a byte array to a string")
 	var s string
 	var r string
 	var b []byte
@@ -40,8 +42,9 @@ func TestStringFromBytes(t *testing.T) {
 // write a function that takes a string and returns an array of runes
 func TestRunes(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to decompose a UTF-8 string into an array of runes")
+	t.Log("GOAL: you should be able to decompose a UTF-8 string into an array of runes")
 	var s string
 	var r []rune
 	var u []rune
@@ -73,8 +76,9 @@ func TestRunes(t *testing.T) {
 // write a function that splits a string into words
 func TestSplitString(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to split a string into words")
+	t.Log("GOAL: you should be able to split a string into words")
 	var s string
 	var r []string
 	var u []string
@@ -100,8 +104,9 @@ func TestSplitString(t *testing.T) {
 // write a function that converts a string to Title Case
 func TestTitleCase(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to convert a string to title case")
+	t.Log("GOAL: you should be able to convert a string to title case")
 	var s string
 	var r string
 	var u string
@@ -112,16 +117,16 @@ func TestTitleCase(t *testing.T) {
 
 	// check length equal
 	if r != u {
-		t.Error(shouldBe(r,u))
+		t.Error(shouldBe(r, u))
 	}
 }
-
 
 // write a function that reduces repeated characters
 func TestReduceString(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to reduce adjacent repeated characters to a desired minimum")
+	t.Log("GOAL: you should be able to reduce adjacent repeated characters to a desired minimum")
 	var s string
 	var r string
 
@@ -164,8 +169,9 @@ func TestReduceString(t *testing.T) {
 // write a function that wraps lines at a given number of columns without breaking works
 func TestWordWrap(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to wrap lines at a given number of columns, without breaking words")
+	t.Log("GOAL: you should be able to wrap lines at a given number of columns, without breaking words")
 	var s string
 	var r string
 	var column int
@@ -199,8 +205,9 @@ func TestWordWrap(t *testing.T) {
 // write a function that reverses the characters in a string
 func TestReverseString(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to reverse the characters in a string")
+	t.Log("GOAL: you should be able to reverse the characters in a string")
 	var s string
 	var r string
 

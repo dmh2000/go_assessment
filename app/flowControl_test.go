@@ -13,8 +13,9 @@ import (
 // otherwise the function should return the number as a string
 func TestFlowControl(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors // handle panics and syntax errors
+	setTestInstance(t) // update test instance for logging
 
-	t.Log("you should be able to conditionally branch your code")
+	t.Log("GOAL: you should be able to conditionally branch your code")
 
 	var num int
 	var s string
