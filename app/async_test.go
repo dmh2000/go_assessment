@@ -33,14 +33,16 @@ func TestAsync(t *testing.T) {
 		var j int
 	loop:
 		for i := 0; i < 5; i++ {
+			// record current time
 			t0 := time.Now()
 
+			// wait for response from go routine or timeout
 			select {
 			case j = <-c:
 				if j != i {
 					t.Error(shouldBe(j, i))
 				}
-			case <-time.After(100 * time.Microsecond):
+			case <-time.After(2000 * time.Millisecond):
 				t.Error("select statement timed out")
 				break loop
 			}
@@ -52,7 +54,14 @@ func TestAsync(t *testing.T) {
 				t.Error("delay of ", d.Milliseconds(), "should be greater than 10ms")
 			}
 		}
+		// signal quit
 		q <- 0
+
+		// check final value
+		j = <-c
+		if j != 10 {
+			t.Error(shouldBe(j, 10))
+		}
 		wg.Done()
 	}()
 

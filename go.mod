@@ -1,8 +1,3 @@
 module dmh2000.xyz/goassessment
 
-go 1.13
-
-require (
-	github.com/fsnotify/fsnotify v1.4.9 // indirect
-	github.com/gorilla/websocket v1.4.2 // indirect
-)
+go 1.15

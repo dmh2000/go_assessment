@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"html/template"
 	"log"
@@ -80,9 +81,13 @@ func handleTests(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	// get specified port
+	port := flag.String("port", "8080", "http://ipaddr:port")
+	flag.Parse()
+
 	// set up the http handlers
 	http.HandleFunc("/index.html", handleTests)
 	http.HandleFunc("/", handleTests)
-	log.Println("listening on :8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Println("listening on :", *port)
+	log.Fatal(http.ListenAndServe(":"+*port, nil))
 }
