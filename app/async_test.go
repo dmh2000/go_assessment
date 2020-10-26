@@ -12,8 +12,10 @@ import (
  * The function is called within a goroutine.
  * The function should send the values 0 .. 4  on the send channel,
  * with a delay of 10 milliseconds or greater before sending each value.
- * The function should return when a message is received on the 'q' channel
+ * When the function receives a message on the 'q' channel it should
+ * send a final value of 10 then return
  */
+
 func TestAsync(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors // handle panics and syntax errors
 	setTestInstance(t) // update test instance for logging

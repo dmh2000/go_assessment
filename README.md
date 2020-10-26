@@ -33,8 +33,8 @@ Note: if you have a compile error in a function under test (inside one of the *t
 topic. You will get an error message describing where and what the compiler error is.
 
 The tests are ordered (more or less) in increasing order of difficulty. The topics covered include 
+  - Operators
   - Flow Control
-  - Logical Operators
   - Strings
   - Slices
   - Binary

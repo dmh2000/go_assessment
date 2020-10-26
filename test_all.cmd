@@ -1,7 +1,7 @@
+@echo "Operators" ./app/app_types.go  1>> results.txt 2>&1
+go test -v ./app/operators.go ./app/operators_test.go ./app/test_util.go ./app/app_types.go  1>> results.txt 2>>&1
 @echo "Flow Control" >results.txt
 go test -v ./app/flowControl.go ./app/flowControl_test.go ./app/test_util.go ./app/app_types.go  1>> results.txt 2>&1
-@echo "Logical Operators" ./app/app_types.go  1>> results.txt 2>&1
-go test -v ./app/logicalOperators.go ./app/logicalOperators_test.go ./app/test_util.go ./app/app_types.go  1>> results.txt 2>>&1
 @echo "Strings" ./app/app_types.go  1>> results.txt 2>&1
 go test -v ./app/strings.go ./app/strings_test.go  ./app/test_util.go ./app/app_types.go  1>> results.txt 2>>&1
 @echo "Slices" ./app/app_types.go  1>> results.txt 2>&1

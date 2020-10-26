@@ -54,8 +54,8 @@ type testPair struct {
 
 // list of all tests to execute
 var tests []testPair = []testPair{
+	{"@Operators", "operators"},
 	{"@Flow Control", "flowControl"},
-	{"@Logical Operators", "logicalOperators"},
 	{"@Strings", "strings"},
 	{"@Slices", "slices"},
 	{"@Binary", "binary"},

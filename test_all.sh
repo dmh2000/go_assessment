@@ -1,12 +1,12 @@
 #!/bin/bash
 
+echo "Operators" 
+echo "Operators" >>results.txt
+go test -v ./app/operators*.go ./app/test_util.go ./app/app_types.go &>>results.txt
+
 echo "Flow Control"
 echo "Flow Control" >results.txt
 go test -v ./app/flowControl*.go ./app/test_util.go ./app/app_types.go &>>results.txt
-
-echo "Logical Operators" 
-echo "Logical Operators" >>results.txt
-go test -v ./app/logicalOperators*.go ./app/test_util.go ./app/app_types.go &>>results.txt
 
 echo "Strings" 
 echo "Strings" >>results.txt
