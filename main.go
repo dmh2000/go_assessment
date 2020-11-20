@@ -55,15 +55,21 @@ func handleTests(w http.ResponseWriter, r *http.Request) {
 
 	// execute the tests
 	t0 := time.Now()
-	tests = runAllTests()
+	tests = runAllTests(t0)
 	t1 := time.Now()
 	// tests finished
 
+	// elapsed time
+	et := t1.Sub(t0)
+
 	// print time for tests to execute
-	log.Println("Tests Finished:", t1.Sub(t0))
+	log.Println("Tests Finished:", et)
 
 	// compile the test results into a string
-	page.Body = template.HTML(TestToHTML(tests))
+	timestamp := fmt.Sprintf("%s : ET %.3f sec", t0.Local().Format("Mon Jan 2 15:04:05 -0700 MST 2006"), et.Seconds())
+
+	// timestamp := t0.Local().Format("Mon Jan 2 15:04:05 -0700 MST 2006") + ": ET " + (t1.Sub(t0).Seconds())
+	page.Body = template.HTML(TestToHTML(timestamp, tests))
 
 	// create the template
 	t, err := template.ParseFiles("static/index.html")

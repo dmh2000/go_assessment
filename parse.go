@@ -156,8 +156,8 @@ func parseTestLine(line string, ti *testResults) {
 	return
 }
 
-// TestToHTML : convert array of test results to html ouput
-func TestToHTML(results [][]string) string {
+// TestToHTML : convert array of test results to html content
+func TestToHTML(timestamp string, results [][]string) string {
 	var ti testResults
 
 	// for each line in the test results
@@ -168,5 +168,9 @@ func TestToHTML(results [][]string) string {
 		}
 	}
 
-	return strings.Join(ti.html, "")
+	// create the timestamp header
+	timeheader := "<div>" + timestamp + "</div>"
+
+	// return the body as a string
+	return timeheader + strings.Join(ti.html, "")
 }

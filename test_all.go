@@ -19,15 +19,17 @@ func runTest(title string, test string, f *os.File) []string {
 
 	// save to results.txt
 	// ignore errors
-	_, err := f.Write(b)
-	if err != nil {
-		log.Printf("can't write results of %v to results.txt", title)
+	if f != nil {
+		_, err := f.Write(b)
+		if err != nil {
+			log.Printf("can't write results of %v to results.txt", title)
+		}
 	}
 
 	// store the title
 	s = make([]string, 0)
 	s = append(s, "@start "+test)
-	s = append(s, title+" : "+time.Now().Format("04:05"))
+	s = append(s, title+" : "+time.Now().Format("15:04:05"))
 
 	// parse out lines in the output
 	t := ""
@@ -67,13 +69,19 @@ var tests []testPair = []testPair{
 }
 
 // run tests, capture all output and return it as a string
-func runAllTests() [][]string {
+func runAllTests(now time.Time) [][]string {
 	var s [][]string
 	var t []string
 
 	f, err := os.OpenFile("./results.txt", os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Println("Can't Open results.txt for writing")
+		f = nil
+	}
+
+	if f != nil {
+		// output date/time stamp
+		f.WriteString(now.Local().Format("Mon Jan 2 15:04:05 -0700 MST 2006") + "\n")
 	}
 
 	s = make([][]string, 0)
