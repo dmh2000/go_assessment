@@ -60,10 +60,15 @@ func TestAsync(t *testing.T) {
 		q <- 0
 
 		// check final value
-		j = <-c
-		if j != 10 {
-			t.Error(shouldBe(j, 10))
+		select {
+		case j = <-c:
+			if j != 10 {
+				t.Error(shouldBe(j, 10))
+			}
+		case <-time.After(500 * time.Millisecond):
+			t.Error("select statement timed out")
 		}
+
 		wg.Done()
 	}()
 
