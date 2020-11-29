@@ -50,14 +50,13 @@ The tests are ordered (more or less) by increasing difficulty. The topics covere
 
 Here's how to work this:
 
-1. set up Go
-2. clone or fork this repo
-3. Start the browser based test framework (test_browser.sh or test_browser.cmd). Open a browser to the host:port
-
-- Loop
-  - refresh the page to run the tests (I'm working on an automatic refresh on save)
-  - modify the skeleton files in ./app until the test passes
-  - go to the next test
+1. Set up Go
+2. Clone or fork this repo
+3. Start the browser based test framework (test_browser.sh or test_browser.cmd). Open a browser to the host:port (:8080 by default)
+4. Refresh the page to run the tests
+5. Update the skeleton files in ./app 
+6. When all tests pass you are done
+ 
 
 #### Running the Tests
 
@@ -96,5 +95,9 @@ use the VS Code test debug function and still update results with a browser refr
 
 2. Logging output in a function under test
 
-If you want to print some debug output inside a from function under test, the test_util.go file provides the _testLog(s string)_ function.
-You can print output using _testLog_ from within a function in an app skeleton file. Due to the way the golang testing system works, the output from these logs will come after the results for that test are printed. The log output specifies the file and line number of where the testLog was called.
+If you want to debug using printouts from within a function under test, the test_util.go file provides the _testLog(s string)_ function.
+You can print output using _testLog_ from within a function in an app skeleton file. Due to the way the golang testing system works, the output from these logs may come after the results for that test are printed. The log output specifies the file and line number of where the testLog was called.
+
+#### Go Modules
+
+This code is set up to be using Modules rather than GOPATH. As it is, it does not import or use any modules besides standard Go libraries. You could probably fix it to use GOPATH if you require that. 
