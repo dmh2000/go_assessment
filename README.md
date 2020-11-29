@@ -4,6 +4,8 @@
 <img src="static/gobanner.svg"/>
 <p>
 
+**Your Job Is To Make The Tests Pass!**
+
 ### What is this?
 
 This is a tool for assessing or practicing beginner level programming in Go. It is [inspired by Rebecca Murphey's js-assessment](https://github.com/rmurphey/js-assessment)
@@ -24,7 +26,7 @@ This tool relies on Test Driven Development using the
 [native Go test framework](https://golang.org/pkg/testing/). The ./app directory
 contains a set of test files (app/_topic_\_test.go) and a corresponding app skeleton file (app/_topic_.go) with
 the required function definitions but missing the implementations. Treat the _topic_\_test.go files
-are the specifications for the function skeletons. The goal is to provide the implementations in the
+as the specifications for the function skeletons. The goal is to provide the implementations in the
 skeleton files to pass the tests. If the tests are not passing, dig into the _topic_\_test.go files
 to figure out what the requirement is, then fix the skeleton file so the tests pass.
 You are done when all tests pass. You should not have to modify anything in the _topic_\_test.go files,
@@ -94,5 +96,5 @@ use the VS Code test debug function and still update results with a browser refr
 
 2. Logging output in a function under test
 
-If you want to print some debug output inside a from function under test, the test*util.go file provides the \_testLog(s string)* function.
+If you want to print some debug output inside a from function under test, the test_util.go file provides the _testLog(s string)_ function.
 You can print output using _testLog_ from within a function in an app skeleton file. Due to the way the golang testing system works, the output from these logs will come after the results for that test are printed. The log output specifies the file and line number of where the testLog was called.
