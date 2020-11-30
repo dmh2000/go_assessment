@@ -64,7 +64,7 @@ To run the tests and see their results you have some choices.
 
 1. From a web browser : **best**
    - the tool includes a web server implementation that will run the tests and display the results for you.
-     - in the root of the repo, run './test_browser.sh' (or 'test_browser.cmd' on Windows) and connect to the hostip:8080 with a browser. You will get a display of all the test results.
+     - in the root of the repo, run './test_browser.sh' (or 'test_browser.cmd' on Windows. see the issue regarding Windows Antivirus if you have problems) and connect to the hostip:8080 with a browser. You will get a display of all the test results.
      - after editing skeleton files, you can update the test results by refreshing the web page. this will rerun the tests and update the results.
      - you don't need to restart the web server when you change a function under test. just refresh the page. If you modify a _topic_\_test.go file, you would need to restart the server.
    - the browser tool needs to be connected to the internet because it uses Bootstrap from a CDN. If you want to run locally you can download the required bootstrap files and modify './static/index.html' to point to their local copies.
