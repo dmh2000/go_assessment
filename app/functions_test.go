@@ -34,7 +34,6 @@ func TestFunction(t *testing.T) {
 		t.Error(shouldBe(s, r))
 	}
 
-	r = "Hai, can i haz funxtion?"
 	f = fFunction("Hai")
 	if f == nil {
 		t.Error("fFunction returned nil")

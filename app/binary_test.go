@@ -54,7 +54,7 @@ func TestBase10(t *testing.T) {
 	}
 }
 
-// write a function taht converts the int value to a binary string
+// write a function that converts the int value to a binary string
 func TestConvertoBinary(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors // handle panics and syntax errors
 	setTestInstance(t) // update test instance for logging

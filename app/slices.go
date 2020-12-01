@@ -70,7 +70,7 @@ func duplicates(a []int) []int {
 	return nil
 }
 
-// write a function that sqaures all items in a slice
+// write a function that squares all items in a slice
 func square(a []int) []int {
 	return nil
 }

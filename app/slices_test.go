@@ -247,7 +247,7 @@ func TestCount(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
 	setTestInstance(t) // update test instance for logging
 
-	t.Log("GOAL: you should be able to count the occurences of an item in a slice")
+	t.Log("GOAL: you should be able to count the occurrences of an item in a slice")
 
 	a := []int{1, 4, 2, 3, 4, 4}
 

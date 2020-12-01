@@ -39,7 +39,7 @@ func TestListFiles(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
 	setTestInstance(t) // update test instance for logging
 
-	t.Log("GOAL: you should be able to return a list of files starting at the top level direcotry")
+	t.Log("GOAL: you should be able to return a list of files starting at the top level directory")
 	var index int
 
 	// passing in empty string "" means list all files from the top level

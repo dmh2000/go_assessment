@@ -63,7 +63,7 @@ func TestIntegerQuotient(t *testing.T) {
 	var b int
 	var r int
 
-	t.Log("GOAL: you should be able to work with the divison operator")
+	t.Log("GOAL: you should be able to work with the division operator")
 	a = 6
 	b = 2
 	r = divide(a, b)
