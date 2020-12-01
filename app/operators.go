@@ -45,12 +45,12 @@ func lessThanEqual(a int, b int) bool {
 	return false
 }
 
-// write a function that uses the less-than operator
+// write a function that uses the greater-than operator
 func greaterThan(a int, b int) bool {
 	return false
 }
 
-// write a function that uses the less-than or equal operator
+// write a function that uses the greater-than or equal operator
 func greaterThanEqual(a int, b int) bool {
 	return false
 }
