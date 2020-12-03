@@ -8,7 +8,8 @@ import (
 
 // results of a single test
 type testResults struct {
-	pass bool
+	pass int
+	fail int
 	html []string
 }
 
@@ -88,7 +89,7 @@ func parseTestLine(line string, ti *testResults) {
 		panic(err)
 	}
 	if matched {
-		ti.pass = true
+		ti.pass++
 		ti.html = append(ti.html, fmt.Sprintf("<div class='pass'>%s</div>", line))
 		return
 	}
@@ -98,7 +99,7 @@ func parseTestLine(line string, ti *testResults) {
 		panic(err)
 	}
 	if matched {
-		ti.pass = false
+		ti.fail++
 		ti.html = append(ti.html, fmt.Sprintf("<div class='fail'>%s</div>", line))
 		return
 	}
@@ -149,11 +150,31 @@ func parseTestLine(line string, ti *testResults) {
 		panic(err)
 	}
 	if matched {
-		ti.pass = false
+		ti.fail++
 		ti.html = append(ti.html, fmt.Sprintf("<div class='fail'>compile failed : %s</div>", line))
 	}
 
 	return
+}
+
+// statistics
+func statHeader(pass int, fail int) string {
+	statheader := "<h3>"
+	// create the pass/fail stats
+	var percent float64
+	if fail == 0 {
+		percent = 100.0
+		statheader += "<span class=\"pass\">100% </span>"
+	} else {
+		percent = float64(pass) / float64(pass+fail)
+		statheader += fmt.Sprintf("<span class=\"run\">progress:%3v%%</span>", percent)
+	}
+
+	statheader += fmt.Sprintf(" <span class=\"pass\">passed:%v</span> ", pass)
+	statheader += fmt.Sprintf(" <span class=\"fail\">failed:%v</span> ", fail)
+	statheader += "</h3>"
+
+	return statheader
 }
 
 // TestToHTML : convert array of test results to html content
@@ -172,5 +193,5 @@ func TestToHTML(timestamp string, results [][]string) string {
 	timeheader := "<div>" + timestamp + "</div>"
 
 	// return the body as a string
-	return timeheader + strings.Join(ti.html, "")
+	return statHeader(ti.pass, ti.fail) + timeheader + strings.Join(ti.html, "")
 }
