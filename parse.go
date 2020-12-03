@@ -164,10 +164,10 @@ func statHeader(pass int, fail int) string {
 	var percent float64
 	if fail == 0 {
 		percent = 100.0
-		statheader += "<span class=\"pass\">100% </span>"
+		statheader += "<span class=\"pass\">progress:100% </span>"
 	} else {
-		percent = float64(pass) / float64(pass+fail)
-		statheader += fmt.Sprintf("<span class=\"run\">progress:%3v%%</span>", percent)
+		percent = (float64(pass) / float64(pass+fail)) + 0.005
+		statheader += fmt.Sprintf("<span class=\"run\">progress:%v%%</span>", int(percent*100.0))
 	}
 
 	statheader += fmt.Sprintf(" <span class=\"pass\">passed:%v</span> ", pass)
@@ -190,7 +190,7 @@ func TestToHTML(timestamp string, results [][]string) string {
 	}
 
 	// create the timestamp header
-	timeheader := "<div>" + timestamp + "</div>"
+	timeheader := "<div class=\"timestamp\">" + timestamp + "</h4>"
 
 	// return the body as a string
 	return statHeader(ti.pass, ti.fail) + timeheader + strings.Join(ti.html, "")
