@@ -54,9 +54,8 @@ Here's how to work this:
 2. Clone or fork this repo
 3. Start the browser based test framework (test_browser.sh or test_browser.cmd). Open a browser to the host:port (:8080 by default)
 4. Refresh the page to run the tests
-5. Update the skeleton files in ./app 
+5. Update the skeleton files in ./app
 6. When all tests pass you are done
- 
 
 #### Running the Tests
 
@@ -95,9 +94,9 @@ use the VS Code test debug function and still update results with a browser refr
 
 2. Logging output in a function under test
 
-If you want to debug using printouts from within a function under test, the test_util.go file provides the _testLog(s string)_ function.
+If you want to debug using printouts from within a function under test, the test*util.go file provides the \_testLog(s string)* function.
 You can print output using _testLog_ from within a function in an app skeleton file. Due to the way the golang testing system works, the output from these logs may come after the results for that test are printed. The log output specifies the file and line number of where the testLog was called.
 
 #### Go Modules
 
-This code is set up to be using Modules rather than GOPATH. As it is, it does not import or use any modules besides standard Go libraries. You could probably fix it to use GOPATH if you require that. 
+This code is set up to be using Modules rather than GOPATH. As it is, it does not import or use any modules besides standard Go libraries. You could probably fix it to use GOPATH if you require that.
