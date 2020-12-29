@@ -91,9 +91,15 @@ func main() {
 	port := flag.String("port", "8080", "http://ipaddr:port")
 	flag.Parse()
 
-	// set up the http handlers
+	// handle the test
 	http.HandleFunc("/index.html", handleTests)
 	http.HandleFunc("/", handleTests)
+
+	// handle static files
+	// fs := http.FileServer(http.Dir("static/"))
+	// http.Handle("/static/",http.StripPrefix("/static/",fs))
+
+	// run the server
 	log.Println("listening on :", *port)
 	log.Fatal(http.ListenAndServe(":"+*port, nil))
 }

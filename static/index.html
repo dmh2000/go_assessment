@@ -62,19 +62,24 @@
         margin-left: 1rem;
       }
 
+      .hdr-pad {
+        padding-top: 1rem;
+      }
+
       .res-pad {
         padding-bottom: 0.4rem;
       }
 
       .row-box {
         margin-top: 0.8rem;
+        padding-top: 0.5rem;
       }
 
       .line-box {
         margin-top: 0.1rem;
       }
 
-      .col-pad {
+      .col-lg-pad {
         padding-left: 1.5rem;
       }
 
@@ -83,13 +88,18 @@
         margin-bottom: 5px;
         margin-top: 5px;
       }
+
+      body {
+        min-width: 1080px;
+      }
     </style>
+
     <script>
       // Test button action
       function reload() {
         document.body.innerHTML = `
-          <div class="m-2">Testing...</div>
-          <div class="spinner-border m-2" role="status">
+          <div class="m-3">Testing...</div>
+          <div class="spinner-border m-3" role="status">
           <span class="sr-only">Running Test...</span>
           </div>`;
         window.location.reload();

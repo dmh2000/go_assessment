@@ -163,7 +163,7 @@ func statHeader(pass int, fail int, timestamp string) string {
 		percent = (float64(pass) / float64(pass+fail)) + 0.005
 	}
 
-	header[0] = `<div class="row row-box">`
+	header[0] = `<div class="row hdr-pad">`
     header[1] = `<div class="col-lg-4 col-lg-pad font-weight-bold title">
 				  Go-Assessment
 				</div>
