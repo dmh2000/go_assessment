@@ -31,8 +31,7 @@ func parseTestLine(line string, ti *testResults) {
 	}
 	if len(s) >= 2 {
 		h := []string{
-			`<div>`,
-			`<a id="`,
+			`<div><a id="`,
 			s[1],
 			`"></a>`,
 		}
@@ -154,7 +153,7 @@ func parseTestLine(line string, ti *testResults) {
 func statHeader(pass int, fail int, timestamp string) string {
 	var header []string 
 
-	header = make([]string,5)
+	header = make([]string,6)
 
 	// create the pass/fail stats
 	var percent float64
@@ -164,32 +163,45 @@ func statHeader(pass int, fail int, timestamp string) string {
 		percent = (float64(pass) / float64(pass+fail)) + 0.005
 	}
 
-	header[0] = fmt.Sprintf(`<div class="row row-box"><div class="col-5 col-pad"><h5>Go-Assessment Test Results</h5></div>`)
-	header[1] = fmt.Sprintf("<div class=\"col-2 badge badge-danger badge-pad\">progress %.0f%%</div>",percent)
-	header[2] = fmt.Sprintf(`<div class="col-2 badge badge-success badge-pad">passed %2d</div>`,pass)
-	header[3] = fmt.Sprintf(`<div class="col-2 badge badge-danger badge-pad">failed %2d</div>`,fail)
-	header[4] = fmt.Sprintf(`</div><div class="row"><div class="col-12 col-pad">%s</div></div>`,timestamp)
+	header[0] = `<div class="row row-box">`
+    header[1] = `<div class="col-lg-4 col-lg-pad font-weight-bold title">
+				  Go-Assessment
+				</div>
+				<div class="col-lg-1"><button class="btn btn-primary" onclick="reload();">Test</button>
+				
+				</div>`
+	header[2] = fmt.Sprintf("<div class=\"col-lg-2 badge badge-danger badge-pad\">progress %.0f%%</div>",percent)
+	header[3] = fmt.Sprintf(`<div class="col-lg-2 badge badge-success badge-pad">passed %2d</div>`,pass)
+	header[4] = fmt.Sprintf(`<div class="col-lg-2 badge badge-danger badge-pad">failed %2d</div>`,fail)
+
+	header[5] = fmt.Sprintf(`</div><div class="row"><div class="col-lg-12 col-lg-pad">%s</div></div>`,timestamp)
 
 	return strings.Join(header,"")
 }
 
 // category header
 func catHeader(category string) string {
-   return  fmt.Sprintf(`<hr/><div class="row"><div class="col-10 col-pad font-weight-bold">%s</div></div>`,category)
+
+	// `<a href="#top">&nbsp;▲&nbsp;</a></span>`
+   return  fmt.Sprintf(`<hr/>
+    <div class="row">
+	  <div class="col-lg-11 col-lg-pad font-weight-bold">%s</div>
+	  <div class="col-lg-1"><a href="#top">▲</a></div>
+    </div>`,category)
 }
 
 // individual test passed
 func testPass(name string) string {
 	return fmt.Sprintf(`<div class="row">
-	  <div class="col-10 col-pad text-success">%s</div>
-	  <div class="col-2 col-pad"><span class="badge badge-success res-pad">PASS</span></div>
+	  <div class="col-lg-10 col-lg-pad text-dark">%s</div>
+	  <div class="col-lg-2 col-lg-pad"><span class="badge badge-success res-pad">PASS</span></div>
     </div>`,name[9:])
 }
 
 func testFail(name string) string {
 	return fmt.Sprintf(`<div class="row">
-	  <div class="col-10 col-pad text-danger">%s</div>
-  	  <div class="col-2 col-pad"><span class="badge badge-danger res-pad">FAIL</span></div>
+	  <div class="col-lg-10 col-lg-pad text-dark">%s</div>
+  	  <div class="col-lg-2 col-lg-pad"><span class="badge badge-danger res-pad">FAIL</span></div>
     </div>`,name[9:])
 }
 
@@ -201,8 +213,8 @@ func testGoal(line string) string {
 	goal := line[index+5:]
 
 	return fmt.Sprintf(`<hr/><div class="row">
-	<div class="col-3 col-pad text-info">%s</div>
-	<div class="col-9 col-pad text-info">%s</div>
+	<div class="col-lg-3 col-lg-pad text-info">%s</div>
+	<div class="col-lg-9 col-lg-pad text-info">%s</div>
 	</div>`,location, goal)
 }
 
@@ -213,11 +225,11 @@ func testInfo(line string) string {
 	info := line[index+1:]
 
 	return fmt.Sprintf(`<div class="row">
-	<div class="col-3 col-pad text-danger item">%s</div>
-	<div class="col-9 col-pad text-danger item">%s</div>
+	<div class="col-lg-3 col-lg-pad text-danger item">%s</div>
+	<div class="col-lg-9 col-lg-pad text-danger item">%s</div>
 	</div>`,location, info)
 
-	// return fmt.Sprintf(`<div class="row"><div class="col-10 col-pad text-danger item">%s</div></div>`,info)
+	// return fmt.Sprintf(`<div class="row"><div class="col-lg-10 col-lg-pad text-danger item">%s</div></div>`,info)
 }
 
 // TestToHTML : convert array of test results to html content
