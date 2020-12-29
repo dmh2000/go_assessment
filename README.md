@@ -6,6 +6,8 @@
 
 **Your Job Is To Make The Tests Pass!**
 
+## UPDATE : THE LAYOUT OF RESULTS IS CHANGED AND LOOKS MUCH NICER NOW
+
 ### What is this?
 
 This is a tool for assessing or practicing beginner level programming in Go. It is [inspired by Rebecca Murphey's js-assessment](https://github.com/rmurphey/js-assessment)
