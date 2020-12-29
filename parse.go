@@ -53,25 +53,15 @@ func parseTestLine(line string, ti *testResults) {
 		return
 	}
 
-	// Test header
+	// Test Category
 	r, err = regexp.Compile(`@(.+)`)
 	s = r.FindStringSubmatch(line)
 	if err != nil {
 		panic(err)
 	}
 	if len(s) >= 2 {
-		h := []string{
-			`<hr/>`,
-			`<div style="width:80%;overflow:hidden">`,
-			`<span style="float:left;" class="h5 hdr">`,
-			s[1],
-			`</span>`,
-			`<span style="float:right;"><a href="#top">&nbsp;▲&nbsp;</a></span>`,
-			`</div>`,
-		}
-		ti.html = append(ti.html, strings.Join(h, ""))
-		// ti.html = append(ti.html, fmt.Sprintf("<div style='width:'80%;'><span style='float:left;' class='h5 hdr'>%s</span><span style='float:right;'><a href='#top'>top</span></div>", s[1]))
-		// ti.html = append(ti.html, fmt.Sprintf("<hr/><div class='h5 hdr'>%s</div>", s[1]))
+		h := catHeader(s[1])
+		ti.html = append(ti.html, h)
 		return
 	}
 
@@ -84,32 +74,35 @@ func parseTestLine(line string, ti *testResults) {
 		return
 	}
 
+	// individual test passsed
 	matched, err = regexp.MatchString(`--- PASS`, line)
 	if err != nil {
 		panic(err)
 	}
 	if matched {
 		ti.pass++
-		ti.html = append(ti.html, fmt.Sprintf("<div class='pass'>%s</div>", line))
+		ti.html = append(ti.html, testPass(line))
 		return
 	}
 
+	// individual test failed
 	matched, err = regexp.MatchString(`--- FAIL`, line)
 	if err != nil {
 		panic(err)
 	}
 	if matched {
 		ti.fail++
-		ti.html = append(ti.html, fmt.Sprintf("<div class='fail'>%s</div>", line))
+		ti.html = append(ti.html, testFail(line))
 		return
 	}
 
+	// test goal
 	matched, err = regexp.MatchString(`.*GOAL*`, line)
 	if err != nil {
 		panic(err)
 	}
 	if matched {
-		ti.html = append(ti.html, fmt.Sprintf("<div class='spec'>%s</div>", line))
+		ti.html = append(ti.html, testGoal(line))
 		return
 	}
 
@@ -118,7 +111,7 @@ func parseTestLine(line string, ti *testResults) {
 		panic(err)
 	}
 	if matched {
-		ti.html = append(ti.html, fmt.Sprintf("<div class='item'>%s</div>", line))
+		ti.html = append(ti.html, testInfo(line))
 		return
 	}
 
@@ -127,7 +120,7 @@ func parseTestLine(line string, ti *testResults) {
 		panic(err)
 	}
 	if matched {
-		ti.html = append(ti.html, fmt.Sprintf("<div class='item'>%s</div>", line))
+		ti.html = append(ti.html, testInfo(line))
 		return
 	}
 
@@ -158,23 +151,73 @@ func parseTestLine(line string, ti *testResults) {
 }
 
 // statistics
-func statHeader(pass int, fail int) string {
-	statheader := "<h3>"
+func statHeader(pass int, fail int, timestamp string) string {
+	var header []string 
+
+	header = make([]string,5)
+
 	// create the pass/fail stats
 	var percent float64
 	if fail == 0 {
 		percent = 100.0
-		statheader += "<span class=\"pass\">progress:100% </span>"
 	} else {
 		percent = (float64(pass) / float64(pass+fail)) + 0.005
-		statheader += fmt.Sprintf("<span class=\"run\">progress:%v%%</span>", int(percent*100.0))
 	}
 
-	statheader += fmt.Sprintf(" <span class=\"pass\">passed:%v</span> ", pass)
-	statheader += fmt.Sprintf(" <span class=\"fail\">failed:%v</span> ", fail)
-	statheader += "</h3>"
+	header[0] = fmt.Sprintf(`<div class="row row-box"><div class="col-5 col-pad"><h5>Go-Assessment Test Results</h5></div>`)
+	header[1] = fmt.Sprintf("<div class=\"col-2 badge badge-danger badge-pad\">progress %.0f%%</div>",percent)
+	header[2] = fmt.Sprintf(`<div class="col-2 badge badge-success badge-pad">passed %2d</div>`,pass)
+	header[3] = fmt.Sprintf(`<div class="col-2 badge badge-danger badge-pad">failed %2d</div>`,fail)
+	header[4] = fmt.Sprintf(`</div><div class="row"><div class="col-12 col-pad">%s</div></div>`,timestamp)
 
-	return statheader
+	return strings.Join(header,"")
+}
+
+// category header
+func catHeader(category string) string {
+   return  fmt.Sprintf(`<hr/><div class="row"><div class="col-10 col-pad font-weight-bold">%s</div></div>`,category)
+}
+
+// individual test passed
+func testPass(name string) string {
+	return fmt.Sprintf(`<div class="row">
+	  <div class="col-10 col-pad text-success">%s</div>
+	  <div class="col-2 col-pad"><span class="badge badge-success res-pad">PASS</span></div>
+    </div>`,name[9:])
+}
+
+func testFail(name string) string {
+	return fmt.Sprintf(`<div class="row">
+	  <div class="col-10 col-pad text-danger">%s</div>
+  	  <div class="col-2 col-pad"><span class="badge badge-danger res-pad">FAIL</span></div>
+    </div>`,name[9:])
+}
+
+// individual test goal
+func testGoal(line string) string {
+
+	index := strings.Index(line,"GOAL")
+	location := line[0:index]
+	goal := line[index+5:]
+
+	return fmt.Sprintf(`<hr/><div class="row">
+	<div class="col-3 col-pad text-info">%s</div>
+	<div class="col-9 col-pad text-info">%s</div>
+	</div>`,location, goal)
+}
+
+// individual test info (line where it failed)
+func testInfo(line string) string {
+	index := strings.LastIndex(line,":")
+	location := line[0:index]
+	info := line[index+1:]
+
+	return fmt.Sprintf(`<div class="row">
+	<div class="col-3 col-pad text-danger item">%s</div>
+	<div class="col-9 col-pad text-danger item">%s</div>
+	</div>`,location, info)
+
+	// return fmt.Sprintf(`<div class="row"><div class="col-10 col-pad text-danger item">%s</div></div>`,info)
 }
 
 // TestToHTML : convert array of test results to html content
@@ -189,9 +232,6 @@ func TestToHTML(timestamp string, results [][]string) string {
 		}
 	}
 
-	// create the timestamp header
-	timeheader := "<div class=\"timestamp\">" + timestamp + "</h4>"
-
 	// return the body as a string
-	return statHeader(ti.pass, ti.fail) + timeheader + strings.Join(ti.html, "")
+	return statHeader(ti.pass, ti.fail, timestamp) + strings.Join(ti.html, "")
 }

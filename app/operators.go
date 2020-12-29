@@ -2,7 +2,7 @@ package goassessment
 
 // write a function that uses the addition operator
 func add(a int, b int) int {
-	return -1
+	return a+b
 }
 
 // write a function that uses the subtraction operator

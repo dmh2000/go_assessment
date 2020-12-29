@@ -35,82 +35,72 @@
     ></script>
 
     <style>
-      .hdr {
-        color: magenta;
-      }
-
-      .run {
-        color: blue;
-        margin-top: 1px;
-        font-weight: bold;
-        font-family: monospace;
-      }
-
-      .fail {
-        color: red;
-        margin-top: 1px;
-        font-weight: bold;
-        font-family: monospace;
-      }
-
-      .pass {
-        color: green;
-        margin-top: 1px;
-        font-weight: bold;
-        font-family: monospace;
-      }
-
       .item {
-        color: red;
-        margin-top: 1px;
         font-size: small;
-        font-family: monospace;
       }
 
-      .spec {
-        color: blue;
-        margin-top: 1px;
-        font-size: small;
-        font-family: monospace;
+      .nav-border-radius {
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
       }
 
-      .other {
-        color: black;
-        margin-top: 1px;
-        font-family: monospace;
+      .body-pad {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 100px;
       }
 
-      .timestamp {
-        margin-top: 1px;
-        font-family: monospace;
-        font-size: large;
-        font-weight: bold;
+      .badge-pad {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-top: 0.8rem;
+        padding-bottom: 1rem;
+        margin-left: 1rem;
+      }
+
+      .res-pad {
+        padding-bottom: 0.4rem;
+      }
+
+      .row-box {
+        margin-top: 0.8rem;
+      }
+
+      .line-box {
+        margin-top: 0.1rem;
+      }
+
+      .col-pad {
+        padding-left: 1.5rem;
+      }
+
+      hr {
+        height: 1px;
+        margin-bottom: 5px;
+        margin-top: 5px;
       }
     </style>
   </head>
 
   <body>
     <div class="container" id="top">
-      <nav class="navbar navbar-expand navbar-light bg-light">
-        <div class="">
+      <nav class="navbar navbar-expand navbar-dark bg-dark nav-border-radius">
+        <div class="mx-auto">
           <ul class="navbar-nav mr-auto mt-1 mt-sm-0">
-            <li class="nav-item"><a class="nav-link" href="#operators">logic</a></li>
-            <li class="nav-item"><a class="nav-link" href="#flowControl">flow</a></li>
-            <li class="nav-item"><a class="nav-link" href="#slices">slices</a></li>
-            <li class="nav-item"><a class="nav-link" href="#binary">binary</a></li>
-            <li class="nav-item"><a class="nav-link" href="#strings">strings</a></li>
-            <li class="nav-item"><a class="nav-link" href="#functions">functions</a></li>
-            <li class="nav-item"><a class="nav-link" href="#recursion">recursion</a></li>
-            <li class="nav-item"><a class="nav-link" href="#methods">methods</a></li>
-            <li class="nav-item"><a class="nav-link" href="#regex">regexp</a></li>
-            <li class="nav-item"><a class="nav-link" href="#async">async</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="#operators">operators</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="#flowControl">flow</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="#slices">slices</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="#binary">binary</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="#strings">strings</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="#functions">functions</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="#recursion">recursion</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="#methods">methods</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="#regex">regexp</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="#async">async</a></li>
           </ul>
         </div>
       </nav>
-      <div style="padding-bottom: 100px">
-        <div class="h4">Go-Assessment Test Results</div>
-        {{.Body}}
-      </div>
+      <div class="bg-light">{{.Body}}</div>
     </div>
   </body>
 </html>

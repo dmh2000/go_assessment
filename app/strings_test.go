@@ -225,10 +225,4 @@ func TestReverseString(t *testing.T) {
 		t.Error(shouldBe(s, r))
 	}
 
-	s = "A man, a plan, a canal: Panama"
-	r = "amanaP :lanac a ,nalp a ,nam A"
-	s = reverseString(s)
-	if s != r {
-		t.Error(shouldBe(s, r))
-	}
 }
