@@ -1,4 +1,4 @@
-# go-assessment [beta]
+# go-assessment
 
 <p text-align="center">
 <img src="static/screenshot.png" width=600/>
@@ -8,7 +8,7 @@
 
 ### What is this?
 
-This is a tool for assessing or practicing beginner level programming in Go. It is [inspired by Rebecca Murphey's js-assessment](https://github.com/rmurphey/js-assessment)
+This is a tool for assessing or practicing beginner level programming in Golang. It is [inspired by Rebecca Murphey's js-assessment](https://github.com/rmurphey/js-assessment)
 
 A while back I tried out Murphey's js-assessment and found it to be a valuable tool for refreshing my javascript capability when I
 had not written any JavaScript for a few months. I figured a similar tool for Go might be useful
