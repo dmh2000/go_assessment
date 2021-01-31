@@ -1,12 +1,10 @@
 # go-assessment [beta]
 
 <p text-align="center">
-<img src="static/gobanner.svg"/>
+<img src="static/screenshot.png" width=600/>
 <p>
 
 **Your Job Is To Make The Tests Pass!**
-
-## UPDATE : THE LAYOUT OF RESULTS IS CHANGED AND LOOKS MUCH NICER NOW
 
 ### What is this?
 
