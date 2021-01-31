@@ -170,7 +170,7 @@ func statHeader(pass int, fail int, timestamp string) string {
 				<div class="col-lg-1"><button class="btn btn-primary" onclick="reload();">Test</button>
 				
 				</div>`
-	header[2] = fmt.Sprintf("<div class=\"col-lg-2 badge badge-danger badge-pad\">progress %.0f%%</div>",percent)
+	header[2] = fmt.Sprintf("<div class=\"col-lg-2 badge badge-danger badge-pad\">progress %.0f%%</div>",percent * 100.0)
 	header[3] = fmt.Sprintf(`<div class="col-lg-2 badge badge-success badge-pad">passed %2d</div>`,pass)
 	header[4] = fmt.Sprintf(`<div class="col-lg-2 badge badge-danger badge-pad">failed %2d</div>`,fail)
 
