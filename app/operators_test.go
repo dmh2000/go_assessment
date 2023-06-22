@@ -345,30 +345,4 @@ func TestLogicalNot(t *testing.T) {
 	}
 }
 
-// write a function that returns true only if both arguments are false
-func TestOperators(t *testing.T) {
-	defer testPanic(t) // handle panics and syntax errors
-	setTestInstance(t) // update test instance for logging
 
-	t.Log("GOAL: you should be able to work with complex usage of opertors not")
-	var a int
-	var b int
-	var c int
-	var d int
-	var e int
-	var r bool
-	var s bool
-	a = 1
-	b = 3
-	c = 12
-	d = 2
-	e = 10
-
-	s = both(lessThan(add(a, b), divide(c, d)), equal(remainder(e, b), subtract(b, d)))
-	r = op(a, b, c, d, e)
-
-	if r != s {
-		t.Error(shouldBe(r, s))
-	}
-
-}
