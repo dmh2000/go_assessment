@@ -344,5 +344,3 @@ func TestLogicalNot(t *testing.T) {
 		t.Error(shouldBe(b, true))
 	}
 }
-
-
