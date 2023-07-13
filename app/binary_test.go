@@ -115,7 +115,7 @@ func TestBitwiseXor(t *testing.T) {
 	var x int
 	var r int
 
-	r = 201559
+	r = 568488
 	x = bitwiseXor(0x12345, 0x33333, 0xabcde)
 	if x != r {
 		t.Error(shouldBe(x, r))

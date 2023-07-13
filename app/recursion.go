@@ -1,6 +1,8 @@
 package goassessment
 
-// write a function that returns a list of files starting from the named directory
+// write a function that returns a list of files starting
+// from a directory. if dirName == "" start from top level.
+// else start from specified directory
 func listFiles(data Dir, dirName string) []string {
 	return nil
 }
