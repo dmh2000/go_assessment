@@ -176,7 +176,7 @@ func TestIntFromInterface(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
 	setTestInstance(t) // update test instance for logging
 
-	t.Log("GOAL: you shoud be able to extract a value from an interface")
+	t.Log("GOAL: you shoud be able to get a value from an interface")
 	var x interface{}
 	var i int
 	var r int

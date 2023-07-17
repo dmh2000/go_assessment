@@ -30,9 +30,10 @@ func (p *PersonSlice) Push(x interface{}) {
 
 // Pop ...
 func (p *PersonSlice) Pop() interface{} {
-	person := (*p)[0]
-	*p = (*p)[1:]
-	return person
+	n := len(*p)       // copy of slice header
+	x := (*p)[n-1]     // save last element in list
+	*p = (*p)[0 : n-1] // truncate list
+	return x           // return last element
 }
 
 // write a function that creates and populates a list
@@ -52,5 +53,5 @@ func sendNotification(n Notifier) string {
 
 // write a function that returns an integer value from an interface{}
 func intFromInterface(i interface{}) int {
-	return -1
+	return i.(int)
 }
