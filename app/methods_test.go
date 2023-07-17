@@ -157,7 +157,7 @@ func TestMethodsNotify(t *testing.T) {
 	// =========================
 	// your function
 	s = sendNotification(e)
-	r = "new mail for 12345-September"
+	r = "new mail for 12345:September"
 	if s != r {
 		t.Error(shouldBe(s, r))
 	}

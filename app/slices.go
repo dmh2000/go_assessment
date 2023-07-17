@@ -114,7 +114,7 @@ func duplicates(a []int) []int {
 	}
 
 	b := []int{}
-	for k, _ := range m {
+	for k := range m {
 		if m[k] > 1 {
 			b = append(b, k)
 		}

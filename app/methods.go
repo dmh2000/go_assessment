@@ -7,37 +7,47 @@ import "container/list"
 // fix the List interface for PersonSlice
 
 // Len ...
-func (p PersonSlice) Len() int { return len(p) }
+func (p PersonSlice) Len() int {
+	return len(p)
+}
 
 // Less ...
 func (p PersonSlice) Less(i int, j int) bool {
-	return false
+	return p[i].age < p[j].age
 }
 
 // Swap ...
 func (p PersonSlice) Swap(i int, j int) {
-
+	t := p[i]
+	p[i] = p[j]
+	p[j] = t
 }
 
 // Push ...
 func (p *PersonSlice) Push(x interface{}) {
-
+	*p = append(*p, x.(Person))
 }
 
 // Pop ...
 func (p *PersonSlice) Pop() interface{} {
-	return nil
+	person := (*p)[0]
+	*p = (*p)[1:]
+	return person
 }
 
 // write a function that creates and populates a list
 func populateList(p PersonSlice) *list.List {
 	var a *list.List
+	a = list.New()
+	for _, v := range p {
+		a.PushBack(v)
+	}
 	return a
 }
 
 // write a function that sends a notification for different types
 func sendNotification(n Notifier) string {
-	return ""
+	return n.notify()
 }
 
 // write a function that returns an integer value from an interface{}
