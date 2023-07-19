@@ -151,43 +151,43 @@ func parseTestLine(line string, ti *testResults) {
 
 // statistics
 func statHeader(pass int, fail int, timestamp string) string {
-	var header []string 
+	var header []string
 
-	header = make([]string,6)
+	header = make([]string, 6)
 
 	// create the pass/fail stats
 	var percent float64
 	if fail == 0 {
-		percent = 100.0
+		percent = 1.0
 	} else {
 		percent = (float64(pass) / float64(pass+fail)) + 0.005
 	}
 
 	header[0] = `<div class="row hdr-pad">`
-    header[1] = `<div class="col-lg-4 col-lg-pad font-weight-bold title">
+	header[1] = `<div class="col-lg-4 col-lg-pad font-weight-bold title">
 				  Go-Assessment
 				</div>
 				<div class="col-lg-1"><button class="btn btn-primary" onclick="reload();">Test</button>
 				
 				</div>`
-	header[2] = fmt.Sprintf("<div class=\"col-lg-2 badge badge-danger badge-pad\">progress %.0f%%</div>",percent * 100.0)
-	header[3] = fmt.Sprintf(`<div class="col-lg-2 badge badge-success badge-pad">passed %2d</div>`,pass)
-	header[4] = fmt.Sprintf(`<div class="col-lg-2 badge badge-danger badge-pad">failed %2d</div>`,fail)
+	header[2] = fmt.Sprintf("<div class=\"col-lg-2 badge badge-danger badge-pad\">progress %.0f%%</div>", percent*100.0)
+	header[3] = fmt.Sprintf(`<div class="col-lg-2 badge badge-success badge-pad">passed %2d</div>`, pass)
+	header[4] = fmt.Sprintf(`<div class="col-lg-2 badge badge-danger badge-pad">failed %2d</div>`, fail)
 
-	header[5] = fmt.Sprintf(`</div><div class="row"><div class="col-lg-12 col-lg-pad">%s</div></div>`,timestamp)
+	header[5] = fmt.Sprintf(`</div><div class="row"><div class="col-lg-12 col-lg-pad">%s</div></div>`, timestamp)
 
-	return strings.Join(header,"")
+	return strings.Join(header, "")
 }
 
 // category header
 func catHeader(category string) string {
 
 	// `<a href="#top">&nbsp;▲&nbsp;</a></span>`
-   return  fmt.Sprintf(`<hr/>
+	return fmt.Sprintf(`<hr/>
     <div class="row">
 	  <div class="col-lg-11 col-lg-pad font-weight-bold">%s</div>
 	  <div class="col-lg-1"><a href="#top">▲</a></div>
-    </div>`,category)
+    </div>`, category)
 }
 
 // individual test passed
@@ -195,39 +195,39 @@ func testPass(name string) string {
 	return fmt.Sprintf(`<div class="row">
 	  <div class="col-lg-10 col-lg-pad text-dark">%s</div>
 	  <div class="col-lg-2 col-lg-pad"><span class="badge badge-success res-pad">PASS</span></div>
-    </div>`,name[9:])
+    </div>`, name[9:])
 }
 
 func testFail(name string) string {
 	return fmt.Sprintf(`<div class="row">
 	  <div class="col-lg-10 col-lg-pad text-dark">%s</div>
   	  <div class="col-lg-2 col-lg-pad"><span class="badge badge-danger res-pad">FAIL</span></div>
-    </div>`,name[9:])
+    </div>`, name[9:])
 }
 
 // individual test goal
 func testGoal(line string) string {
 
-	index := strings.Index(line,"GOAL")
+	index := strings.Index(line, "GOAL")
 	location := line[0:index]
 	goal := line[index+5:]
 
 	return fmt.Sprintf(`<hr/><div class="row">
 	<div class="col-lg-3 col-lg-pad text-info">%s</div>
 	<div class="col-lg-9 col-lg-pad text-info">%s</div>
-	</div>`,location, goal)
+	</div>`, location, goal)
 }
 
 // individual test info (line where it failed)
 func testInfo(line string) string {
-	index := strings.LastIndex(line,":")
+	index := strings.LastIndex(line, ":")
 	location := line[0:index]
 	info := line[index+1:]
 
 	return fmt.Sprintf(`<div class="row">
 	<div class="col-lg-3 col-lg-pad text-danger item">%s</div>
 	<div class="col-lg-9 col-lg-pad text-danger item">%s</div>
-	</div>`,location, info)
+	</div>`, location, info)
 
 	// return fmt.Sprintf(`<div class="row"><div class="col-lg-10 col-lg-pad text-danger item">%s</div></div>`,info)
 }
