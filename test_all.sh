@@ -24,13 +24,17 @@ echo "Functions"
 echo "Functions" >>results.txt
 go test -v ./app/functions*.go ./app/test_util.go ./app/app_types.go &>>results.txt
 
-echo "Recursion"
-echo "Recursion" >>results.txt
-go test -v ./app/recursion*.go ./app/test_util.go ./app/app_types.go &>>results.txt
-
 echo "Methods"
 echo "Methods" >>results.txt
 go test -v ./app/method*.go  ./app/test_util.go ./app/app_types.go &>>results.txt
+
+echo "Collections"
+echo "Collections" >>results.txt
+go test -v ./app/collections*.go  ./app/test_util.go ./app/app_types.go &>>results.txt
+
+echo "Recursion"
+echo "Recursion" >>results.txt
+go test -v ./app/recursion*.go ./app/test_util.go ./app/app_types.go &>>results.txt
 
 echo "Regexp"
 echo "Regexp" >>results.txt

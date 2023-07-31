@@ -17,9 +17,6 @@ func fibonacci(n int) int {
 	return -1
 }
 
-func parens(cur string, open int, close int, n int, acc *[]string) {
-}
-
 // write a function that returns an array of strings with all valid sets of n parens
 func validParentheses(n int) []string {
 	return nil

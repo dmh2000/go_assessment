@@ -18,3 +18,5 @@ go test -v ./app/methods.go ./app/methods_test.go  ./app/test_util.go ./app/app_
 go test -v ./app/regex.go  ./app/regex_test.go ./app/test_util.go ./app/app_types.go  1>> results.txt 2>>&1
 @echo "Async" ./app/app_types.go  1>> results.txt 2>&1
 go test -v ./app/async.go ./app/async_test.go ./app/test_util.go ./app/app_types.go  1>> results.txt 2>>&1
+@echo "Collections" ./app/app_types.go  1>> results.txt 2>&1
+go test -v ./app/collections.go ./app/collections_test.go ./app/test_util.go ./app/app_types.go  1>> results.txt 2>>&1

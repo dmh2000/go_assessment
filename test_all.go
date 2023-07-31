@@ -62,8 +62,9 @@ var tests []testPair = []testPair{
 	{"@Slices", "slices"},
 	{"@Binary", "binary"},
 	{"@Functions", "functions"},
-	{"@Recursion", "recursion"},
 	{"@Methods", "methods"},
+	{"@Collections", "collections"},
+	{"@Recursion", "recursion"},
 	{"@Regexp", "regex"},
 	{"@Async", "async"},
 }
