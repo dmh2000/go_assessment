@@ -26,3 +26,13 @@ type Dir struct {
 	files []string
 	dirs  []Dir
 }
+
+type LinkedListElement struct {
+	next  *LinkedListElement
+	value interface{}
+}
+
+type LinkedList struct {
+	head *LinkedListElement
+	tail *LinkedListElement
+}

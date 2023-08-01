@@ -46,9 +46,7 @@ func TestBase10(t *testing.T) {
 	setTestInstance(t) // update test instance for logging
 
 	t.Log("GOAL: you should be able to return the base10 representation of a binary string")
-	var val int
-
-	val = base10("11000000")
+	val := base10("11000000")
 	if val != 192 {
 		t.Error(shouldBe(val, 192))
 	}
@@ -79,11 +77,9 @@ func TestBitwiseOr(t *testing.T) {
 	setTestInstance(t) // update test instance for logging
 
 	t.Log("GOAL: you should be able to use the bitwise OR operator")
-	var x int
-	var r int
 
-	r = 770047
-	x = bitwiseOr(0x12345, 0x33333, 0xabcde)
+	r := 770047
+	x := bitwiseOr(0x12345, 0x33333, 0xabcde)
 	if x != r {
 		t.Error(shouldBe(x, r))
 	}
@@ -95,11 +91,9 @@ func TestBitwiseAnd(t *testing.T) {
 	setTestInstance(t) // update test instance for logging
 
 	t.Log("GOAL: you should be able to use the bitwise AND operator")
-	var x int
-	var r int
 
-	r = 8192
-	x = bitwiseAnd(0x12345, 0x33333, 0xabcde)
+	r := 8192
+	x := bitwiseAnd(0x12345, 0x33333, 0xabcde)
 	if x != r {
 		t.Error(shouldBe(x, r))
 	}
@@ -112,11 +106,9 @@ func TestBitwiseXor(t *testing.T) {
 	setTestInstance(t) // update test instance for logging
 
 	t.Log("GOAL: you should be able to use the bitwise XOR operator")
-	var x int
-	var r int
 
-	r = 568488
-	x = bitwiseXor(0x12345, 0x33333, 0xabcde)
+	r := 568488
+	x := bitwiseXor(0x12345, 0x33333, 0xabcde)
 	if x != r {
 		t.Error(shouldBe(x, r))
 	}

@@ -124,9 +124,8 @@ func TestPermute(t *testing.T) {
 	setTestInstance(t) // update test instance for logging
 
 	t.Log("GOAL: you should be able to return the permutations of an array")
-	var result [][]int
 
-	result = permute(permData)
+	result := permute(permData)
 
 	// length of answers should be the same
 	if len(result) != len(permutations) {
@@ -167,12 +166,8 @@ func TestValidParens(t *testing.T) {
 
 	t.Log("GOAL: you should be able to return the set of all valid combinations of n pairs of parentheses.")
 
-	var s []string
-	var r []string
-
-	r = []string{"((()))", "(()())", "(())()", "()(())", "()()()"}
-
-	s = validParentheses(3)
+	r := []string{"((()))", "(()())", "(())()", "()(())", "()()()"}
+	s := validParentheses(3)
 	if len(s) != len(r) {
 		t.Error(shouldBe(len(s), len(r)))
 	}
