@@ -8,14 +8,11 @@ import "testing"
 func TestIntegerSum(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
 	setTestInstance(t) // update test instance for logging
-	var a int
-	var b int
-	var r int
 
 	t.Log("GOAL: you should be able to work with addition operator")
-	a = 6
-	b = 2
-	r = add(a, b)
+	a := 6
+	b := 2
+	r := add(a, b)
 	if r != 8 {
 		t.Error(shouldBe(r, 8))
 	}
@@ -25,13 +22,12 @@ func TestIntegerSum(t *testing.T) {
 func TestIntegerDifference(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
 	setTestInstance(t) // update test instance for logging
-	var a int
-	var b int
+
 	var r int
 
 	t.Log("GOAL: you should be able to work with the subtraction operator")
-	a = 6
-	b = 2
+	a := 6
+	b := 2
 	r = subtract(a, b)
 	if r != 4 {
 		t.Error(shouldBe(r, 4))
@@ -42,14 +38,11 @@ func TestIntegerDifference(t *testing.T) {
 func TestIntegerProduct(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
 	setTestInstance(t) // update test instance for logging
-	var a int
-	var b int
-	var r int
 
 	t.Log("GOAL: you should be able to work with the multiplication operator")
-	a = 6
-	b = 2
-	r = multiply(a, b)
+	a := 6
+	b := 2
+	r := multiply(a, b)
 	if r != 12 {
 		t.Error(shouldBe(r, 12))
 	}
@@ -59,14 +52,11 @@ func TestIntegerProduct(t *testing.T) {
 func TestIntegerQuotient(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
 	setTestInstance(t) // update test instance for logging
-	var a int
-	var b int
-	var r int
 
 	t.Log("GOAL: you should be able to work with the division operator")
-	a = 6
-	b = 2
-	r = divide(a, b)
+	a := 6
+	b := 2
+	r := divide(a, b)
 	if r != 3 {
 		t.Error(shouldBe(r, 3))
 	}
@@ -83,11 +73,12 @@ func TestIntegerQuotient(t *testing.T) {
 func TestIntegerRemainder(t *testing.T) {
 	defer testPanic(t) // handle panics and syntax errors
 	setTestInstance(t) // update test instance for logging
+
+	t.Log("GOAL: you should be able to work with the remainder (modulo) operator")
 	var a int
 	var b int
 	var r int
 
-	t.Log("GOAL: you should be able to work with the remainder (modulo) operator")
 	a = 7
 	b = 2
 	r = remainder(a, b)

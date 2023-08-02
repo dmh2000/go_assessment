@@ -10,10 +10,10 @@ import (
 func runTest(title string, test string, f *os.File) []string {
 	var b []byte
 	var s []string
-	var app string = "./app/" + test + ".go"
-	var tst string = "./app/" + test + "_test.go"
-	var utl string = "./app/test_util.go"
-	var typ string = "./app/app_types.go"
+	var app = "./app/" + test + ".go"
+	var tst = "./app/" + test + "_test.go"
+	var utl = "./app/test_util.go"
+	var typ = "./app/app_types.go"
 	cmd := exec.Command("go", "test", "-v", app, tst, utl, typ)
 	b, _ = cmd.CombinedOutput()
 
