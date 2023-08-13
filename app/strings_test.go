@@ -26,13 +26,10 @@ func TestStringFromBytes(t *testing.T) {
 	setTestInstance(t) // update test instance for logging
 
 	t.Log("GOAL: you should be able to convert a byte array to a string")
-	var s string
-	var r string
-	var b []byte
 
-	b = []byte{72, 101, 108, 108, 111, 44, 32, 87, 111, 114, 108, 100, 10}
-	s = fromBytes(b)
-	r = "Hello, World\n"
+	b := []byte{72, 101, 108, 108, 111, 44, 32, 87, 111, 114, 108, 100, 10}
+	s := fromBytes(b)
+	r := "Hello, World\n"
 
 	if s != r {
 		t.Error(shouldBe(s, r))
@@ -172,15 +169,11 @@ func TestWordWrap(t *testing.T) {
 	setTestInstance(t) // update test instance for logging
 
 	t.Log("GOAL: you should be able to wrap lines at a given number of columns, without breaking words")
-	var s string
-	var r string
-	var column int
-
 	// !!! use underscore to indicate where a wrap would occur
 
-	column = 5
-	s = "abcdef abcde abc def"
-	r = "abcdef_abcde_abc_def"
+	column := 5
+	s := "abcdef abcde abc def"
+	r := "abcdef_abcde_abc_def"
 	s = wordWrap(s, column)
 	if s != r {
 		t.Error(shouldBe(s, r))

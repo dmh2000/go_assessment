@@ -8,6 +8,7 @@ func listFiles(data Dir, dirName string) []string {
 }
 
 // wrote a function that returns all permutations of the input array
+// hint : https://www.geeksforgeeks.org/heaps-algorithm-for-generating-permutations/
 func permute(arr []int) [][]int {
 	return nil
 }
@@ -17,10 +18,8 @@ func fibonacci(n int) int {
 	return -1
 }
 
-func parens(cur string, open int, close int, n int, acc *[]string) {
-}
-
 // write a function that returns an array of strings with all valid sets of n parens
+// hint : https://www.geeksforgeeks.org/print-all-combinations-of-balanced-parentheses/
 func validParentheses(n int) []string {
 	return nil
 }

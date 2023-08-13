@@ -145,15 +145,12 @@ func parseTestLine(line string, ti *testResults) {
 		ti.fail++
 		ti.html = append(ti.html, fmt.Sprintf("<div class='fail'>compile failed : %s</div>", line))
 	}
-
-	return
 }
 
 // statistics
 func statHeader(pass int, fail int, timestamp string) string {
-	var header []string
 
-	header = make([]string, 6)
+	header := make([]string, 6)
 
 	// create the pass/fail stats
 	var percent float64
