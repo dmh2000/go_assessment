@@ -45,6 +45,7 @@ The tests are ordered (more or less) by increasing difficulty. The topics covere
 - Functions
 - Recursion
 - Methods
+- Collections
 - Regexp
 - Async
 
