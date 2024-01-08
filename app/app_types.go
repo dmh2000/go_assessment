@@ -34,4 +34,5 @@ type LinkedListElement struct {
 
 type LinkedList struct {
 	head *LinkedListElement
+	tail *LinkedListElement
 }
